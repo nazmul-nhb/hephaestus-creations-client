@@ -6,6 +6,7 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import Contact from "../pages/Contact/Contact";
 import About from "../pages/About/About";
+import AddArts from "../pages/AddArts/AddArts";
 
 export const router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/add-arts',
+                element: <AddArts></AddArts>
             },
             {
                 path: '/register',

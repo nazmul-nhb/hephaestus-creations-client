@@ -23,12 +23,13 @@ const Navbar = () => {
             setProfilePicture(defaultPP);
         }
     }, [user]);
-    console.log(user);
+
     const navLinks = <>
         <NavLink to={'/'}>Home</NavLink>
+        <NavLink to={'/all-arts'}>All Art & Crafts</NavLink>
+
         {
-            user && <>
-                <NavLink to={'/all-arts'}>All Art & Crafts</NavLink>
+            user && <><NavLink to={'/add-arts'}>Add Craft Item</NavLink>
                 <NavLink to={'/my-arts'}>My Art & Crafts</NavLink>
             </>
         }
