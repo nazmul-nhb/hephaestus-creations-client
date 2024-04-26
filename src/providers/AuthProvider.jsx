@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import { useState, createContext, useEffect } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup, GithubAuthProvider, TwitterAuthProvider } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup, GithubAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 const githubProvider = new GithubAuthProvider();
-const twitterProvider = new TwitterAuthProvider();
 
 export const AuthContext = createContext(null);
 
@@ -44,12 +43,6 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, githubProvider)
     }
 
-    // Sign in with Twitter
-    const twitterLogin = () => {
-        setUserLoading(true);
-        return signInWithPopup(auth, twitterProvider)
-    }
-
     // Sign Out
     const logOut = () => {
         setUserLoading(true);
@@ -67,7 +60,7 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    const authInfo = { user, createUser, userLogin, googleLogin, facebookLogin, githubLogin, twitterLogin, logOut, userLoading, setUserLoading };
+    const authInfo = { user, createUser, userLogin, googleLogin, facebookLogin, githubLogin, logOut, userLoading, setUserLoading };
 
     return (
         <AuthContext.Provider value={authInfo}>
