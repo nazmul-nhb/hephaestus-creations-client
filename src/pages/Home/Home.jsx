@@ -1,9 +1,9 @@
 
 const Home = () => {
     return (
-        <div>
+        <section>
             THis is Home
-        </div>
+        </section>
     );
 };
 

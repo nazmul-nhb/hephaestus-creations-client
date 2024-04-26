@@ -76,7 +76,7 @@ const Register = () => {
     }
 
     return (
-        <section className="mx-2 md:mx-8 my-2 md:my-8 p-2 md:px-4 text-teal-900 space-y-6 flex flex-col lg:flex-row justify-around items-around">
+        <section className="mx-2 md:mx-8 my-2 md:my-8 p-2 md:px-4 text-teal-900 space-y-6 flex flex-col lg:flex-row justify-around items-center">
             <Helmet>
                 <title>Register - Hephaestus Creations</title>
             </Helmet>
@@ -85,7 +85,7 @@ const Register = () => {
                 data-aos-offset="300"
                 data-aos-easing="ease-in-sine"
                 data-aos-duration="1000"
-                onSubmit={handleSubmit(handleRegister)} className="flex flex-col gap-6 w-[96%] md:w-4/5 lg:w-1/2 px-4 lg:px-20 py-4 lg:py-10 bg-white shadow-lg shadow-[#3c3939] border border-[#d3d0d0] rounded-md mx-auto">
+                onSubmit={handleSubmit(handleRegister)} className="flex flex-col gap-6 w-[96%] md:w-4/5 lg:w-1/2 px-4 lg:px-20 py-4 lg:py-10 bg-white shadow-lg shadow-[#3c3939] border border-[#d3d0d0] rounded-md">
                 <h2 className="text-lg md:text-2xl font-medium">Please, Register</h2>
                 <div className="flex flex-col gap-3">
                     <label className="font-medium" htmlFor="name">Your Name *</label>
@@ -150,27 +150,13 @@ const Register = () => {
                                 }
                             })}
                             className="p-2 rounded-lg w-full bg-[#F3F3F3]" type={showPassword ? "text" : "password"} name="password" id="password" placeholder="Enter Your Password" />
-                        <span className="absolute top-1/2 right-2 -translate-y-1/2" onClick={() => setShowPassword(!showPassword)} >{showPassword ? <FaEyeSlash /> : <FaEye />}</span>
+                        <span className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer" onClick={() => setShowPassword(!showPassword)} >{showPassword ? <FaEyeSlash /> : <FaEye />}</span>
                     </div>
                 </div>
                 {
                     errors.password && (
                         <p className="text-red-700">{errors.password.message}</p>)
                 }
-                {/* <label htmlFor="confirm-password">Confirm Your Password</label>
-                    <div className="relative">
-                        <input
-                            {...register("confirm-password", {
-                                required:
-                                    { value: true, message: "You must fill this field." }
-                            })}
-                            className="p-2 rounded-lg w-full bg-[#F3F3F3]" type={showPassword ? "text" : "password"} name="confirm-password" id="confirm-password" placeholder="Confirm Your Password" />
-                        <span className="absolute top-1/2 right-2 -translate-y-1/2" onClick={() => setShowPassword(!showPassword)} >{showPassword ? <FaEyeSlash /> : <FaEye />}</span>
-                    </div> */}
-                {/* <div className="flex gap-2">
-                    <input type="checkbox" name="terms" id="terms" />
-                    <label htmlFor="terms">Accept Our <Link className="text-red-700 hover:text-blue-800">Terms & Conditions</Link></label>
-                </div> */}
                 <Button buttonType={'submit'} className={'border w-full text-xl font-semibold'} buttonText={'Register'} color={'teal'} hoverColor={'white'} hoverBgColor={'transparent'}></Button>
                 <p className="text-center text-sm md:text-base font-medium">Already have an Account? <Link className="text-red-700 hover:text-blue-800" to={'/login'}>Login Here!</Link></p>
             </form>
@@ -180,30 +166,13 @@ const Register = () => {
                 data-aos-offset="300"
                 data-aos-easing="ease-in-sine"
                 data-aos-duration="1000"
-                className="flex flex-col gap-2 pt-6 lg:pt-20">
+                className="flex flex-col gap-2 pt-6 lg:pt-0">
                 <h3 className="text-center">Or</h3>
                 <h3 className="text-center text-xl font-semibold">Login Using Social Media</h3>
                 <div className="flex gap-4 justify-center items-center text-3xl">
-                    <button
-                        data-aos="fade-left"
-                        data-aos-offset="300"
-                        data-aos-easing="ease-in-sine"
-                        data-aos-duration="1000"
-                        onClick={handleGoogleLogin} className="text-[#4285f4] hover:text-green-700"><FaGoogle></FaGoogle></button>
-                    <button
-                        data-aos="fade-left"
-                        data-aos-offset="300"
-                        data-aos-easing="ease-in-sine"
-                        data-aos-duration="1000"
-                        data-aos-delay="1000"
-                        onClick={handleFacebookLogin} className="text-[#0964ff] hover:text-green-700"><FaFacebook></FaFacebook></button>
-                    <button
-                        data-aos="fade-left"
-                        data-aos-offset="300"
-                        data-aos-easing="ease-in-sine"
-                        data-aos-duration="1000"
-                        data-aos-delay="1500"
-                        onClick={handleGithubLogin} className="text-[#000000] hover:text-green-700"><FaGithub></FaGithub></button>
+                    <button onClick={handleGoogleLogin} className="text-[#4285f4] border border-[#4285f4] hover:text-white hover:bg-[#4285f4] rounded-full p-2 transition-all duration-500"><FaGoogle></FaGoogle></button>
+                    <button onClick={handleFacebookLogin} className="text-[#0964ff] border border-[#0964ff] hover:text-white hover:bg-[#0964ff] rounded-full p-2 transition-all duration-500"><FaFacebook></FaFacebook></button>
+                    <button onClick={handleGithubLogin} className="text-black border border-black hover:text-white rounded-full hover:bg-black p-2 transition-all duration-500"><FaGithub></FaGithub></button>
                 </div>
             </div>
         </section>
