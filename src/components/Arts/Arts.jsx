@@ -16,17 +16,17 @@ const Arts = () => {
             .then(res => res.json())
             .then(data => {
                 setArts(data);
-                setArtsLoading(false)
+                setArtsLoading(false);
             })
     }, [])
 
-if(artsLoading){
-    return(
-        <div className="flex items-center justify-center space-x-2">
-            <img src={loader} alt="loader" />
-        </div>
-    )
-}
+    if (artsLoading) {
+        return (
+            <div className="flex items-center justify-center space-x-2">
+                <img src={loader} alt="loader" />
+            </div>
+        )
+    }
 
     return (
         <section className="space-y-6">
@@ -43,7 +43,7 @@ if(artsLoading){
                 }
             </div>
             <div className="flex items-center justify-center">
-            <Button onClick={() => { setShowMore(!showMore), showMore ? setArtsLength(6) : setArtsLength(arts.length) }} color={'red'} buttonText={!showMore ? 'Show More' : 'Show Less'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border border-red-700'}></Button>
+                <Button onClick={() => { setShowMore(!showMore), showMore ? setArtsLength(6) : setArtsLength(arts.length) }} color={'red'} buttonText={!showMore ? 'Show More' : 'Show Less'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border border-red-700'}></Button>
             </div>
         </section>
     );
