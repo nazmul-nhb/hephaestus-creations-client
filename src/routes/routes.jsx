@@ -7,6 +7,7 @@ import Login from "../pages/Login/Login";
 import Contact from "../pages/Contact/Contact";
 import About from "../pages/About/About";
 import AddArts from "../pages/AddArts/AddArts";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/add-arts',
-                element: <AddArts></AddArts>
+                element: <PrivateRoute><AddArts></AddArts></PrivateRoute>
             },
             {
                 path: '/register',

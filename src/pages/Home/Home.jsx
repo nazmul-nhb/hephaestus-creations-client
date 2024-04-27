@@ -1,8 +1,10 @@
+import Arts from "../../components/Arts/Arts";
 
 const Home = () => {
     return (
         <section>
-            THis is Home
+            This is Home
+            <Arts></Arts>
         </section>
     );
 };
