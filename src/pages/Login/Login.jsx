@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Helmet } from 'react-helmet-async';
 import { toast } from "react-toastify";
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -23,9 +24,21 @@ const Login = () => {
             })
             .catch(error => {
                 if (error.message === "Firebase: Error (auth/invalid-credential).") {
-                    toast.error("Email & Password Did Not Match");
+                    Swal.fire({
+                        title: 'Error!',
+                        text: "Email & Password Did Not Match!",
+                        icon: 'error',
+                        confirmButtonText: 'Close'
+                    });
+                    // toast.error("Email & Password Did Not Match!");
                 } else {
-                    toast.error(error.message);
+                    // toast.error(error.message);
+                    Swal.fire({
+                        title: 'Error!',
+                        text: error.message,
+                        icon: 'error',
+                        confirmButtonText: 'Close'
+                    });
                 }
             })
     }
@@ -37,7 +50,23 @@ const Login = () => {
                 navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
-                toast.error(error.message.split(': ')[1]);
+                // toast.error(error.message.split(': ')[1]);
+                if (error.message === "Firebase: Error (auth/popup-closed-by-user).") {
+                    Swal.fire({
+                        title: 'Alert!',
+                        text: "Popup Closed by User!",
+                        icon: 'warning',
+                        confirmButtonText: 'Close'
+                    });
+                } else {
+
+                    Swal.fire({
+                        title: 'Error!',
+                        text: error.message,
+                        icon: 'error',
+                        confirmButtonText: 'Close'
+                    });
+                }
             })
     }
 
@@ -48,7 +77,23 @@ const Login = () => {
                 navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
-                toast.error(error.message.split(': ')[1]);
+                // toast.error(error.message.split(': ')[1]);
+                if (error.message === "Firebase: Error (auth/popup-closed-by-user).") {
+                    Swal.fire({
+                        title: 'Alert!',
+                        text: "Popup Closed by User!",
+                        icon: 'warning',
+                        confirmButtonText: 'Close'
+                    });
+                } else {
+
+                    Swal.fire({
+                        title: 'Error!',
+                        text: error.message,
+                        icon: 'error',
+                        confirmButtonText: 'Close'
+                    });
+                }
             })
     }
 
@@ -59,7 +104,23 @@ const Login = () => {
                 navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
-                toast.error(error.message.split(': ')[1]);
+                // toast.error(error.message.split(': ')[1]);
+                if (error.message === "Firebase: Error (auth/popup-closed-by-user).") {
+                    Swal.fire({
+                        title: 'Alert!',
+                        text: "Popup Closed by User!",
+                        icon: 'warning',
+                        confirmButtonText: 'Close'
+                    });
+                } else {
+
+                    Swal.fire({
+                        title: 'Error!',
+                        text: error.message,
+                        icon: 'error',
+                        confirmButtonText: 'Close'
+                    });
+                }
             })
     }
 

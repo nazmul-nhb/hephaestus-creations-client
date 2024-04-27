@@ -10,6 +10,9 @@ const AddArts = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const handleAddArt = (newItem) => {
+        newItem.customization = newItem.customization === "true";
+        newItem.price = parseFloat(newItem.price);
+        newItem.rating = parseFloat(newItem.rating);
         console.log(newItem);
         // send data to the server
         fetch('http://localhost:5000/arts', {
@@ -24,10 +27,10 @@ const AddArts = () => {
                 console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
-                        title: 'Success!',
+                        title: 'Done!',
                         text: 'Art Item Added Successfully',
                         icon: 'success',
-                        confirmButtonText: 'Cool'
+                        confirmButtonText: 'Close'
                     });
                     reset();
                 }
@@ -58,27 +61,27 @@ const AddArts = () => {
                     </div>
                     {/* Art Name */}
                     <div className="w-full flex flex-col gap-3">
-                        <label className="font-medium" htmlFor="itemName">Art Name*</label>
+                        <label className="font-medium" htmlFor="item_name">Art Name*</label>
                         <input
-                            {...register("itemName", {
+                            {...register("item_name", {
                                 required:
                                     { value: true, message: "You must provide a valid Name for the art item." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="itemName" id="itemName" placeholder="Art/Craft Name" />
+                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="item_name" id="item_name" placeholder="Art/Craft Name" />
                         {
-                            errors.itemName && <p className="text-red-700">{errors.itemName.message}</p>
+                            errors.item_name && <p className="text-red-700">{errors.item_name.message}</p>
                         }
                     </div>
                     {/* Subcategory Name */}
                     <div className="w-full flex flex-col gap-3">
-                        <label className="font-medium" htmlFor="subcategoryName">Subcategory Name*</label>
+                        <label className="font-medium" htmlFor="subcategory_name">Subcategory Name*</label>
                         <input
-                            {...register("subcategoryName", {
+                            {...register("subcategory_name", {
                                 required:
                                     { value: true, message: "You must select a valid Subcategory." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" list="subcategoryNames" name="subcategoryName" id="subcategoryName" placeholder="Select A Subcategory"></input>
-                        <datalist id="subcategoryNames">
+                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" list="subcategory_names" name="subcategory_name" id="subcategory_name" placeholder="Select or Add A Subcategory"></input>
+                        <datalist id="subcategory_names">
                             {/* <option value={""}>Select A Subcategory</option> */}
                             <option value="Clay Sculpture">Clay Sculpture</option>
                             <option value="Stone Sculpture">Stone Sculpture</option>
@@ -89,7 +92,7 @@ const AddArts = () => {
                             <option value="Wood Engraving">Wood Engraving</option>
                         </datalist>
                         {
-                            errors.subcategoryName && <p className="text-red-700">{errors.subcategoryName.message}</p>
+                            errors.subcategory_name && <p className="text-red-700">{errors.subcategory_name.message}</p>
                         }
                     </div>
                     {/* Price */}
@@ -98,24 +101,27 @@ const AddArts = () => {
                         <input
                             {...register("price", {
                                 required:
-                                    { value: true, message: "You must the price of the item." }
+                                    { value: true, message: "You must provide the price for the item." },
+                                min: {
+                                    value: 0.1, message: "Price should not be less than 0.1"
+                                },
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="number" name="price" id="price" placeholder="Price" />
+                            className="p-2 rounded-lg bg-[#F3F3F3]" type="number" step="0.01" name="price" id="price" placeholder="Price" />
                         {
                             errors.price && <p className="text-red-700">{errors.price.message}</p>
                         }
                     </div>
                     {/* Short Description */}
                     <div className="lg:col-span-2 w-full flex flex-col gap-3">
-                        <label className="font-medium" htmlFor="shortDescription">Short Description*</label>
+                        <label className="font-medium" htmlFor="short_description">Short Description*</label>
                         <textarea
-                            {...register("shortDescription", {
+                            {...register("short_description", {
                                 required:
                                     { value: true, message: "You must write something." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="shortDescription" id="shortDescription" placeholder="Write a Short Description of the Art/Craft Item" />
+                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="short_description" id="short_description" placeholder="Write a Short Description of the Art/Craft Item" />
                         {
-                            errors.shortDescription && <p className="text-red-700">{errors.shortDescription.message}</p>
+                            errors.short_description && <p className="text-red-700">{errors.short_description.message}</p>
                         }
                     </div>
                     {/* Rating */}
@@ -124,9 +130,15 @@ const AddArts = () => {
                         <input
                             {...register("rating", {
                                 required:
-                                    { value: true, message: "You must provide a rating for the item." }
+                                    { value: true, message: "You must provide a rating for the item." },
+                                min: {
+                                    value: 0.0, message: "Rating cannot be a negative value!"
+                                },
+                                max: {
+                                    value: 5.0, message: "Rating cannot exceed 5.0!"
+                                },
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="number" name="rating" id="rating" placeholder="Critic Rating" />
+                            className="p-2 rounded-lg bg-[#F3F3F3]" type="number" step="0.01" name="rating" id="rating" placeholder="Critic Rating" />
                         {
                             errors.rating && <p className="text-red-700">{errors.rating.message}</p>
                         }
@@ -134,76 +146,85 @@ const AddArts = () => {
                     {/* Customization */}
                     <div className="w-full flex flex-col gap-3">
                         <label className="font-medium" htmlFor="customization">Customization*</label>
-                        <input
+                        {/* <input
                             {...register("customization", {
                                 required:
                                     { value: true, message: "You must select a Customization option." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="customization" list="customizations" id="customization" placeholder="Select Customization Option" />
+                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="customization" list="customizations" id="customization" placeholder="Select or Add A Customization Option" />
                         <datalist id="customizations">
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </datalist>
+                            <option value={true}>Yes</option>
+                            <option value={false}>No</option>
+                        </datalist> */}
+                        <select
+                            {...register("customization", {
+                                required: { value: true, message: "You must select a Customization option." }
+                            })}
+                            className="p-[9.75px] rounded-lg bg-[#F3F3F3]" name="customization" id="customization">
+                            <option value="">Select Customization Option</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
                         {
                             errors.customization && <p className="text-red-700">{errors.customization.message}</p>
                         }
                     </div>
                     {/* Processing Time */}
                     <div className="w-full flex flex-col gap-3">
-                        <label className="font-medium" htmlFor="processingTime">Processing Time*</label>
+                        <label className="font-medium" htmlFor="processing_time">Processing Time*</label>
                         <input
-                            {...register("processingTime", {
+                            {...register("processing_time", {
                                 required:
                                     { value: true, message: "You must provide processing time for the art item." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="processingTime" id="processingTime" placeholder="Processing Time" />
+                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="processing_time" id="processing_time" placeholder="Processing Time" />
                         {
-                            errors.processingTime && <p className="text-red-700">{errors.processingTime.message}</p>
+                            errors.processing_time && <p className="text-red-700">{errors.processing_time.message}</p>
                         }
                     </div>
                     {/* Stock Status */}
                     <div className="w-full flex flex-col gap-3">
-                        <label className="font-medium" htmlFor="stockStatus">Stock Status*</label>
+                        <label className="font-medium" htmlFor="stock_status">Stock Status*</label>
                         <input
-                            {...register("stockStatus", {
+                            {...register("stock_status", {
                                 required:
                                     { value: true, message: "You must select stock status for the art item." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="stockStatus" list="stocks" id="stockStatus" placeholder="Stock Status" />
+                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="stock_status" list="stocks" id="stock_status" placeholder="Select or Add Stock Status" />
                         <datalist id="stocks">
                             <option value="In Stock">In Stock</option>
                             <option value="Made to Order">Made to Order</option>
                         </datalist>
                         {
-                            errors.stockStatus && <p className="text-red-700">{errors.stockStatus.message}</p>
+                            errors.stock_status && <p className="text-red-700">{errors.stock_status.message}</p>
                         }
                     </div>
                     {/* User Email */}
                     <div className="flex flex-col gap-3">
-                        <label className="font-medium" htmlFor="userEmail">Your Email</label>
+                        <label className="font-medium" htmlFor="user_email">Your Email*</label>
                         <input
-                            {...register("userEmail", {
+                            {...register("user_email", {
                                 value: `${user?.email || ''}`,
                                 required:
                                     { value: true, message: "You must provide your email address." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="email" name="userEmail" id="userEmail" placeholder="Your Email" />
+                            className="p-2 rounded-lg bg-[#F3F3F3]" type="email" name="user_email" id="user_email" placeholder="Your Email" />
                         {
-                            errors.userEmail && <p className="text-red-700">{errors.userEmail.message}</p>
+                            errors.user_email && <p className="text-red-700">{errors.user_email.message}</p>
                         }
                     </div>
                     {/* User Name */}
                     <div className="flex flex-col gap-3">
-                        <label className="font-medium" htmlFor="userName">Your Name</label>
+                        <label className="font-medium" htmlFor="user_name">Your Name*</label>
                         <input
-                            {...register("userName", {
+                            {...register("user_name", {
                                 value: `${user?.displayName || ''}`,
                                 required:
                                     { value: true, message: "You must provide your name." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="userName" id="userName" placeholder="Your Name" />
+                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="user_name" id="user_name" placeholder="Your Name" />
                         {
-                            errors.userName && <p className="text-red-700">{errors.userName.message}</p>
+                            errors.user_name && <p className="text-red-700">{errors.user_name.message}</p>
                         }
                     </div>
                 </div>
