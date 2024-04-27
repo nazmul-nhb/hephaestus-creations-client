@@ -29,9 +29,11 @@ if(artsLoading){
 }
 
     return (
-        <section className="">
+        <section className="space-y-6">
             <h3 className="">Our Arts & Crafts</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum ducimus culpa consequuntur laboriosam ipsam officia reprehenderit quaerat ipsum voluptatem. Odit distinctio non officiis amet reprehenderit dolore, nulla veritatis eligendi quo?</p>
+            <p className=""><span className="">Hephaestus Creations</span> offers a diverse selection of meticulously crafted sculptures and artworks, each imbued with intricate details and artistic flair. From captivating clay sculptures to elegant stone carvings, our collection showcases the talent and creativity of skilled artisans, making it easy for enthusiasts and collectors alike to find unique pieces that inspire and delight.</p>
+
+            {/* Cards */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
                     arts?.slice(0, artsLength).map(art => <Art

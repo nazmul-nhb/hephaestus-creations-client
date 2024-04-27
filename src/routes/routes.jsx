@@ -8,6 +8,7 @@ import Contact from "../pages/Contact/Contact";
 import About from "../pages/About/About";
 import AddArts from "../pages/AddArts/AddArts";
 import PrivateRoute from "./PrivateRoute";
+import ArtDetails from "../pages/ArtDetails/ArtDetails";
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +23,11 @@ export const router = createBrowserRouter([
             {
                 path: '/add-arts',
                 element: <PrivateRoute><AddArts></AddArts></PrivateRoute>
+            },
+            {
+                path: '/details/:id',
+                element: <PrivateRoute><ArtDetails/></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/arts/${params.id}`)
             },
             {
                 path: '/register',
