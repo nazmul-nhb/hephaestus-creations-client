@@ -8,6 +8,7 @@ const ArtDetails = () => {
     return (
         <div>
             Hello: {item_name}
+            
         </div>
     );
 };

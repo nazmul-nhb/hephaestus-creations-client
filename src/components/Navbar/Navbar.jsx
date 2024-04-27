@@ -5,8 +5,8 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import defaultPP from '../../assets/user.png';
 import { MdMenuOpen, MdOutlineClose } from "react-icons/md";
-import { FiLogOut } from "react-icons/fi";
 import { toast } from "react-toastify";
+import { IoMdLogOut } from "react-icons/io";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -76,8 +76,8 @@ const Navbar = () => {
                         ? <div className="flex items-center gap-2 md:gap-3">
                             <Link to={'/profile'}><img className="w-9 md:w-14 h-9 md:h-14 rounded-full border-2 p-[2px] border-green-900 hover:opacity-75 transform transition-all duration-1000" src={profilePicture} alt={userName} title={userName} /></Link>
 
-                            <div className="cursor-pointer text-3xl md:text-5xl text-[#e85800] hover:text-[#236d3e] transform transition-all duration-1000" title="Logout" onClick={handleLogout}>
-                                <FiLogOut />
+                            <div className="flex items-center justify-center w-9 md:w-14 h-9 md:h-14 rounded-full border-2 border-[#c6c0cf] p-[2px] cursor-pointer text-2xl md:text-4xl hover:text-3xl hover:md:text-5xl bg-[#c6c0cf] text-[#ffffff] hover:text-[#ff5151] hover:bg-[#e0d5d5] hover:border-[#e0d5d5] transform transition-all duration-1000" title="Log out" onClick={handleLogout}>
+                                <IoMdLogOut />
                             </div>
                         </div>
                         : <div className="flex items-center gap-2 md:gap-3">
