@@ -172,9 +172,7 @@ const UpdateArt = ({ polishedArt, closeModal, handleUpdate }) => {
                         }
                     </div>
                 </div>
-                <button className="px-3 py-2 font-bold rounded-lg bg-[#235d62] text-white border border-[#235d62] hover:text-[#235d62] hover:bg-transparent transition duration-500"
-                //  onClick={() => { closeModal, handleUpdate(polishedArt._id) }}
-                 >Update</button>
+                <button className="px-3 py-2 font-bold rounded-lg bg-[#235d62] text-white border border-[#235d62] hover:text-[#235d62] hover:bg-transparent transition duration-500">Update</button>
             </form>
         </div>
     );

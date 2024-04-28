@@ -1,23 +1,23 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import contactDoodle from '../../assets/contact.png';
-import success from '../../assets/success.png';
 import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
 const Contact = () => {
     const { user } = useContext(AuthContext);
-    const [showModal, setShowModal] = useState(false);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const handleMessage = () => {
-        setShowModal(true);
+    const handleMessage = (data) => {
+        Swal.fire({
+            title: 'Success!',
+            text: `Hi, ${data?.name}, Your Message has been sent. You will be replied soon!`,
+            icon: 'success',
+            confirmButtonText: 'Okay'
+        })
         reset();
     }
-
-    const closeModal = () => {
-        setShowModal(false);
-    };
 
     return (
         <div className="mx-2 md:mx-8 my-2 md:my-8 p-8 grid grid-cols-1 gap-8 rounded-2xl md:grid-cols-2 dark:bg-gray-100 dark:text-gray-800 shadow-lg shadow-[#2b7178]">
@@ -82,20 +82,6 @@ const Contact = () => {
                 </div>
                 <button type="submit" className="w-full flex items-center justify-center tracking-wide uppercase p-3 font-bold rounded-lg bg-teal-600 text-white border border-teal-600 hover:text-teal-600 hover:bg-transparent transition duration-500">Send Message</button>
             </form>
-            {
-                showModal && (
-                    <dialog open className="w-4/5 md:w-2/5 h-auto bg-white bg-opacity-90 p-8 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg rounded-lg">
-                        <div className="flex flex-col items-center justify-center text-center text-[#235d62]">
-                            <div className='h-full flex justify-center items-center'><img className='w-1/2' src={success} alt="Success" /></div>
-                            <h3 className="font-bold text-lg">Success!</h3>
-                            <p className="py-4">Message Sent. You will be replied soon.</p>
-                            <div className="">
-                                <button className="px-3 py-2 font-bold rounded-lg bg-[#235d62] text-white border border-[#235d62] hover:text-[#235d62] hover:bg-transparent transition duration-500" onClick={closeModal}>Okay</button>
-                            </div>
-                        </div>
-                    </dialog>
-                )
-            }
         </div>
     );
 };

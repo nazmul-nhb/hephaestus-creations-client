@@ -34,7 +34,7 @@ const MyArts = () => {
         setCustomizationFilter(customization);
         if (customization === 'true' || customization === 'false') {
             setArtsLoading(true);
-            fetch(`http://localhost:5000/arts/filter/${customization}`)
+            fetch(`http://localhost:5000/arts/filter/${user.email}/${customization}`)
                 .then(res => res.json())
                 .then(data => {
                     setMyArts(data);
@@ -43,7 +43,6 @@ const MyArts = () => {
         } else if (customization === 'all') {
             loadMyArts();
         }
-
     }
 
     // Delete from My Art & Crafts
@@ -90,7 +89,7 @@ const MyArts = () => {
                 <title>My Arts & Crafts - Hephaestus Creations</title>
             </Helmet>
             <div className="flex flex-col justify-center items-center">
-                <h3 className="">My Arts & Crafts</h3>
+                <h3 className="">My Arts & Crafts ({myArts.length})</h3>
                 <form className="my-8">
                     <select
                         onChange={handleFilter}
