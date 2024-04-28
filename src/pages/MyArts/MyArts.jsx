@@ -28,8 +28,8 @@ const MyArts = () => {
             You won't be able to revert the process!`,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#ff0000',
+            cancelButtonColor: '#2a7947',
             confirmButtonText: 'Yes, Delete It!'
         }).then((result) => {
             if (result.isConfirmed) {
@@ -53,6 +53,10 @@ const MyArts = () => {
         })
     }
 
+    const handleUpdate= (id) => {
+        console.log(id);
+    }
+
 
     if (artsLoading) {
         return (
@@ -71,6 +75,7 @@ const MyArts = () => {
                         art={art}
                         modifiable={true}
                         handleDelete={handleDelete}
+                        handleUpdate={handleUpdate}
                     ></Art>)
                 }
             </div>

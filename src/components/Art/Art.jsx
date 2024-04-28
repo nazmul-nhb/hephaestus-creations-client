@@ -4,9 +4,18 @@ import Button from '../Button/Button';
 import { TbEdit, TbEditOff } from 'react-icons/tb';
 import { FaStar } from 'react-icons/fa';
 import { RiDeleteBin6Line, RiFileEditFill } from 'react-icons/ri';
+import { useState } from 'react';
+import UpdateArt from '../UpdateArt/UpdateArt';
+import { IoIosCloseCircle } from 'react-icons/io';
 
-const Art = ({ art, modifiable, handleDelete }) => {
+const Art = ({ art, modifiable, handleDelete, handleUpdate }) => {
     const { _id, image, item_name, price, rating, customization, stock_status } = art;
+    
+    const [showModal, setShowModal] = useState(false);
+
+    const closeModal = () => {
+        setShowModal(false);
+    };
 
     return (
         <div className='flex gap-5 border shadow-md p-2 rounded-lg bg-gradient-to-r from-[#cf86ba57] to-[#aad96da3]'>
@@ -24,15 +33,28 @@ const Art = ({ art, modifiable, handleDelete }) => {
                 {
                     !modifiable ? <Link to={`/details/${_id}`}><Button buttonText={'View Details'} color={'red'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border border-red-700 w-full'}></Button></Link>
                         : <div className="flex justify-between gap-2">
-                            <button className='flex items-center gap-1'>
+                            <button onClick={() => setShowModal(true)} className='flex items-center gap-1'>
                                 <RiFileEditFill /> Update
                             </button>
-                            <button onClick={()=>handleDelete(_id)} className='flex items-center gap-1'>
+                            <button onClick={() => handleDelete(_id)} className='flex items-center gap-1'>
                                 <RiDeleteBin6Line /> Delete
                             </button>
                         </div>
                 }
             </div>
+            {/* Update Popup */}
+            {
+                showModal && (
+                    <dialog open className="w-full lg:w-4/5 h-3/4 bg-white bg-opacity-95 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg rounded-lg z-20 overflow-y-auto">
+                        <UpdateArt
+                            art={art}
+                            handleUpdate={handleUpdate}
+                            closeModal={closeModal}
+                        ></UpdateArt>
+                        <button onClick={closeModal} className='absolute top-1 right-1 text-5xl text-red-800 hover:text-red-600 hover:opacity-80 transition-all duration-500' title='Close'><IoIosCloseCircle/></button>
+                    </dialog>
+                )
+            }
         </div>
     );
 };
@@ -41,6 +63,7 @@ Art.propTypes = {
     art: PropTypes.object,
     modifiable: PropTypes.bool,
     handleDelete: PropTypes.func,
+    handleUpdate: PropTypes.func,
 }
 
 export default Art;
