@@ -1,11 +1,15 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Button from "../../components/Button/Button";
+import { Helmet } from "react-helmet-async";
 
 const AllArts = () => {
     const arts = useLoaderData();
 
     return (
         <section>
+            <Helmet>
+                <title>All Arts & Crafts List - Hephaestus Creations</title>
+            </Helmet>
             <h2 className="mb-4 text-2xl font-semibold leading-tight">All Art & Craft Items</h2>
             <div className="container p-2 mx-auto sm:p-4 text-gray-100 dark:text-gray-800">
                 <div className="overflow-x-auto">

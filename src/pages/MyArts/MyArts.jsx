@@ -3,13 +3,16 @@ import { AuthContext } from "../../providers/AuthProvider";
 import loader from '../../assets/loader.svg';
 import Art from "../../components/Art/Art";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const MyArts = () => {
     const { user } = useContext(AuthContext);
     const [myArts, setMyArts] = useState([]);
     const [artsLoading, setArtsLoading] = useState(false);
+    const [customizationFilter, setCustomizationFilter] = useState('');
 
-    useEffect(() => {
+
+    const loadMyArts = () => {
         setArtsLoading(true);
         fetch(`http://localhost:5000/arts/email/${user?.email}`)
             .then(res => res.json())
@@ -17,7 +20,31 @@ const MyArts = () => {
                 setMyArts(data);
                 setArtsLoading(false);
             })
+    }
+
+    useEffect(() => {
+        if (user) {
+            loadMyArts();
+        }
     }, [user])
+
+    const handleFilter = (e) => {
+        e.preventDefault();
+        const customization = e.target.value;
+        setCustomizationFilter(customization);
+        if (customization === 'true' || customization === 'false') {
+            setArtsLoading(true);
+            fetch(`http://localhost:5000/arts/filter/${customization}`)
+                .then(res => res.json())
+                .then(data => {
+                    setMyArts(data);
+                    setArtsLoading(false);
+                })
+        } else if (customization === 'all') {
+            loadMyArts();
+        }
+
+    }
 
     // Delete from My Art & Crafts
     const handleDelete = (id) => {
@@ -32,7 +59,6 @@ const MyArts = () => {
             confirmButtonText: 'Yes, Delete It!'
         }).then((result) => {
             if (result.isConfirmed) {
-                // setArtsLoading(true);
                 fetch(`http://localhost:5000/arts/id/${id}`, { method: "DELETE" })
                     .then(res => res.json()).then(data => {
                         console.log(data);
@@ -44,7 +70,6 @@ const MyArts = () => {
                             )
                             const remainingArts = myArts?.filter(art => art._id !== id);
                             setMyArts(remainingArts);
-                            // setArtsLoading(false);
                         }
                     })
             }
@@ -61,6 +86,24 @@ const MyArts = () => {
 
     return (
         <section>
+            <Helmet>
+                <title>My Arts & Crafts - Hephaestus Creations</title>
+            </Helmet>
+            <div className="flex flex-col justify-center items-center">
+                <h3 className="">My Arts & Crafts</h3>
+                <form className="my-8">
+                    <select
+                        onChange={handleFilter}
+                        value={customizationFilter}
+                        className="p-2 rounded-lg bg-[#F3F3F3] text-center outline outline-gray-700"
+                        name="customization" id="customization">
+                        <option value="">Filter by Customization</option>
+                        <option value="true">Customization: Yes</option>
+                        <option value="false">Customization: No</option>
+                        <option value="all">Show All</option>
+                    </select>
+                </form>
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
                     myArts?.map(art => <Art

@@ -146,16 +146,6 @@ const AddArts = () => {
                     {/* Customization */}
                     <div className="w-full flex flex-col gap-3">
                         <label className="font-medium" htmlFor="customization">Customization*</label>
-                        {/* <input
-                            {...register("customization", {
-                                required:
-                                    { value: true, message: "You must select a Customization option." }
-                            })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="customization" list="customizations" id="customization" placeholder="Select or Add A Customization Option" />
-                        <datalist id="customizations">
-                            <option value={true}>Yes</option>
-                            <option value={false}>No</option>
-                        </datalist> */}
                         <select
                             {...register("customization", {
                                 required: { value: true, message: "You must select a Customization option." }
