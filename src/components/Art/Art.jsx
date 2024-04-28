@@ -9,6 +9,7 @@ import UpdateArt from '../UpdateArt/UpdateArt';
 import { IoIosCloseCircle } from 'react-icons/io';
 import Swal from 'sweetalert2';
 import loader from '../../assets/loader.svg';
+import { useTypewriter, Cursor } from 'react-simple-typewriter'
 
 const Art = ({ art, modifiable, handleDelete }) => {
     const [polishedArt, setPolishedArt] = useState(art);
@@ -44,6 +45,11 @@ const Art = ({ art, modifiable, handleDelete }) => {
             })
     }
 
+    const [text] = useTypewriter({
+        words: [`Price: $${price}`],
+        loop: true,
+    })
+
     if (artsLoading) {
         return (
             <div className="flex items-center justify-center">
@@ -62,7 +68,7 @@ const Art = ({ art, modifiable, handleDelete }) => {
             </div>
             <div className="flex-1 flex flex-col justify-between gap-2">
                 <h3 className="text-lg font-semibold">{item_name}</h3>
-                <h3 className="flex-grow text-lg font-bold"><span>Price: </span>${price}</h3>
+                <h3 className="flex-grow text-lg font-bold">{text} <Cursor cursorColor='red' /></h3>
                 <h4 className="flex-grow "><span>Stock: </span>{stock_status}</h4>
                 <h4 className="flex-grow flex items-center gap-1"><span className='flex items-center gap-1'>{customization ? <TbEdit /> : <TbEditOff />} Customization: </span>{customization ? "Yes" : "No"}</h4>
                 {

@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import ArtDetails from "../pages/ArtDetails/ArtDetails";
 import AllArts from "../pages/AllArts/AllArts";
 import MyArts from "../pages/MyArts/MyArts";
+import Profile from "../pages/Profile/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
             {
                 path: '/my-arts',
                 element: <PrivateRoute><MyArts></MyArts></PrivateRoute>
+            },
+            {
+                path: '/profile',
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>
             },
             {
                 path: '/details/:id',
