@@ -7,6 +7,7 @@ import defaultPP from '../../assets/user.png';
 import { MdMenuOpen, MdOutlineClose } from "react-icons/md";
 import { toast } from "react-toastify";
 import { IoMdLogOut } from "react-icons/io";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -74,9 +75,14 @@ const Navbar = () => {
                 {
                     user
                         ? <div className="flex items-center gap-2 md:gap-3">
-                            <Link to={'/profile'}><img className="w-9 md:w-14 h-9 md:h-14 rounded-full border-2 p-[2px] border-green-900 hover:opacity-75 transform transition-all duration-1000" src={profilePicture} alt={userName} title={userName} /></Link>
-
-                            <div className="flex items-center justify-center w-9 md:w-14 h-9 md:h-14 rounded-full border-2 border-[#c6c0cf] p-[2px] cursor-pointer text-2xl md:text-4xl hover:text-3xl hover:md:text-5xl bg-[#c6c0cf] text-[#ffffff] hover:text-[#ff5151] hover:bg-[#e0d5d5] hover:border-[#e0d5d5] transform transition-all duration-1000" title="Log out" onClick={handleLogout}>
+                            <Tooltip anchorSelect=".nameIcon" place="bottom">
+                                {userName}
+                            </Tooltip>
+                            <Link to={'/profile'}><img className="nameIcon w-9 md:w-14 h-9 md:h-14 rounded-full border-2 p-[2px] border-green-900 hover:opacity-75 transform transition-all duration-1000" src={profilePicture} alt={userName} /></Link>
+                            <Tooltip anchorSelect=".logOutIcon" place="bottom">
+                                Log out
+                            </Tooltip>
+                            <div className="logOutIcon flex items-center justify-center w-9 md:w-14 h-9 md:h-14 rounded-full border-2 border-[#c6c0cf] p-[2px] cursor-pointer text-2xl md:text-4xl hover:text-3xl hover:md:text-5xl bg-[#c6c0cf] text-[#ffffff] hover:text-[#ff5151] hover:bg-[#e0d5d5] hover:border-[#e0d5d5] transform transition-all duration-1000" onClick={handleLogout}>
                                 <IoMdLogOut />
                             </div>
                         </div>
