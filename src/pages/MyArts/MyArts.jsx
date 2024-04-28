@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const MyArts = () => {
     const { user } = useContext(AuthContext);
     const [myArts, setMyArts] = useState([]);
-    const [artsLoading, setArtsLoading] = useState(true);
+    const [artsLoading, setArtsLoading] = useState(false);
 
     useEffect(() => {
         setArtsLoading(true);
@@ -24,8 +24,7 @@ const MyArts = () => {
         const deletableArt = myArts?.find(art => art._id === id);
         Swal.fire({
             title: 'Are You Sure?',
-            text: `Delete ${deletableArt.item_name}?
-            You won't be able to revert the process!`,
+            text: `Do you want to Delete "${deletableArt.item_name}"?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#ff0000',
@@ -33,7 +32,6 @@ const MyArts = () => {
             confirmButtonText: 'Yes, Delete It!'
         }).then((result) => {
             if (result.isConfirmed) {
-
                 setArtsLoading(true);
                 fetch(`http://localhost:5000/arts/id/${id}`, { method: "DELETE" })
                     .then(res => res.json()).then(data => {
@@ -44,19 +42,14 @@ const MyArts = () => {
                                 'Your Art has been deleted.',
                                 'success'
                             )
-                        const remainingArts = myArts?.filter(art => art._id !== id);
-                        setMyArts(remainingArts);
-                        setArtsLoading(false);
+                            const remainingArts = myArts?.filter(art => art._id !== id);
+                            setMyArts(remainingArts);
+                            setArtsLoading(false);
                         }
                     })
             }
         })
     }
-
-    const handleUpdate= (id) => {
-        console.log(id);
-    }
-
 
     if (artsLoading) {
         return (
@@ -75,7 +68,6 @@ const MyArts = () => {
                         art={art}
                         modifiable={true}
                         handleDelete={handleDelete}
-                        handleUpdate={handleUpdate}
                     ></Art>)
                 }
             </div>

@@ -6,7 +6,7 @@ import loader from '../../assets/loader.svg';
 const Arts = () => {
     const [arts, setArts] = useState([]);
     const [artsLength, setArtsLength] = useState(6);
-    const [artsLoading, setArtsLoading] = useState(true);
+    const [artsLoading, setArtsLoading] = useState(false);
     const [showMore, setShowMore] = useState(false);
 
 

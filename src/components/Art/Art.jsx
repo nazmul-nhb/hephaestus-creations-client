@@ -7,15 +7,50 @@ import { RiDeleteBin6Line, RiFileEditFill } from 'react-icons/ri';
 import { useState } from 'react';
 import UpdateArt from '../UpdateArt/UpdateArt';
 import { IoIosCloseCircle } from 'react-icons/io';
+import Swal from 'sweetalert2';
+import loader from '../../assets/loader.svg';
 
-const Art = ({ art, modifiable, handleDelete, handleUpdate }) => {
-    const { _id, image, item_name, price, rating, customization, stock_status } = art;
-    
+const Art = ({ art, modifiable, handleDelete }) => {
+    const [polishedArt, setPolishedArt] = useState(art);
+    const { _id, image, item_name, price, rating, customization, stock_status } = polishedArt;
+    const [artsLoading, setArtsLoading] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
     const closeModal = () => {
         setShowModal(false);
     };
+
+    const handleUpdate = (id, updatedArt) => {
+        setArtsLoading(true);
+        fetch(`http://localhost:5000/arts/id/${id}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedArt)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    setPolishedArt(updatedArt);
+                    setArtsLoading(false);
+                    Swal.fire({
+                        title: 'Success!',
+                        text: `${polishedArt.item_name} Updated Successfully!`,
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
+    }
+
+    if (artsLoading) {
+        return (
+            <div className="flex items-center justify-center">
+                <img src={loader} alt="loader" />
+            </div>
+        )
+    }
 
     return (
         <div className='flex gap-5 border shadow-md p-2 rounded-lg bg-gradient-to-r from-[#cf86ba57] to-[#aad96da3]'>
@@ -42,16 +77,16 @@ const Art = ({ art, modifiable, handleDelete, handleUpdate }) => {
                         </div>
                 }
             </div>
-            {/* Update Popup */}
+            {/* Update Modal */}
             {
                 showModal && (
                     <dialog open className="w-full lg:w-4/5 h-3/4 bg-white bg-opacity-95 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg rounded-lg z-20 overflow-y-auto">
                         <UpdateArt
-                            art={art}
+                            polishedArt={polishedArt}
                             handleUpdate={handleUpdate}
                             closeModal={closeModal}
                         ></UpdateArt>
-                        <button onClick={closeModal} className='absolute top-1 right-1 text-5xl text-red-800 hover:text-red-600 hover:opacity-80 transition-all duration-500' title='Close'><IoIosCloseCircle/></button>
+                        <button onClick={closeModal} className='absolute top-1 right-1 text-5xl text-red-800 hover:text-red-600 hover:opacity-80 transition-all duration-500' title='Close'><IoIosCloseCircle /></button>
                     </dialog>
                 )
             }

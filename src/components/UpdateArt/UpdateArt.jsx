@@ -1,34 +1,34 @@
 import { useForm } from "react-hook-form";
 import PropTypes from 'prop-types';
 
-const UpdateArt = ({ art, closeModal, handleUpdate }) => {
+const UpdateArt = ({ polishedArt, closeModal, handleUpdate }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const updateArt = (updatableArt) => {
-        updatableArt.customization = updatableArt.customization === "true";
-        updatableArt.price = parseFloat(updatableArt.price);
-        updatableArt.rating = parseFloat(updatableArt.rating);
-        console.log(updatableArt);
+    const updateArt = (updatedArt) => {
+        updatedArt.customization = updatedArt.customization === "true";
+        updatedArt.price = parseFloat(updatedArt.price);
+        updatedArt.rating = parseFloat(updatedArt.rating);
+        console.log(updatedArt);
         closeModal();
-        handleUpdate(art._id)
+        handleUpdate(polishedArt._id, updatedArt)
     }
 
     return (
         <div>
             <form onSubmit={handleSubmit(updateArt)} className="flex flex-col gap-6 mx-auto px-4 lg:px-20 py-6 lg:py-10 bg-gradient-to-r from-[#86cfa157] to-[#8d6dd9a3] shadow-lg shadow-[#3c3939] rounded-lg">
-                <h2 className="text-lg md:text-2xl font-semibold text-center">Update {art.item_name}</h2>
+                <h2 className="text-lg md:text-2xl font-semibold text-center">Update {polishedArt.item_name}</h2>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                     {/* Photo URL */}
                     <div className="w-full flex flex-col gap-3">
                         <label className="font-medium" htmlFor="image">Image Link for Art/Craft*</label>
                         <input
-                        defaultValue={art.image}
+                        defaultValue={polishedArt.image}
                             {...register("image", {
                                 required:
                                     { value: true, message: "You must provide a valid photo URL." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="image" id="image" placeholder="Your Photo URL for the art" />
+                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="image" id="image" placeholder="Your Photo URL for the polishedArt" />
                         {
                             errors.image && <p className="text-red-700">{errors.image.message}</p>
                         }
@@ -37,10 +37,10 @@ const UpdateArt = ({ art, closeModal, handleUpdate }) => {
                     <div className="w-full flex flex-col gap-3">
                         <label className="font-medium" htmlFor="item_name">Art Name*</label>
                         <input
-                        defaultValue={art.item_name}
+                        defaultValue={polishedArt.item_name}
                             {...register("item_name", {
                                 required:
-                                    { value: true, message: "You must provide a valid Name for the art item." }
+                                    { value: true, message: "You must provide a valid Name for the polishedArt item." }
                             })}
                             className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="item_name" id="item_name" placeholder="Art/Craft Name" />
                         {
@@ -51,7 +51,7 @@ const UpdateArt = ({ art, closeModal, handleUpdate }) => {
                     <div className="w-full flex flex-col gap-3">
                         <label className="font-medium" htmlFor="subcategory_name">Subcategory Name*</label>
                         <input
-                            defaultValue={art.subcategory_name}
+                            defaultValue={polishedArt.subcategory_name}
                             {...register("subcategory_name", {
                                 required:
                                     { value: true, message: "You must select a valid Subcategory." }
@@ -75,7 +75,7 @@ const UpdateArt = ({ art, closeModal, handleUpdate }) => {
                     <div className="w-full flex flex-col gap-3">
                         <label className="font-medium" htmlFor="price">Price*</label>
                         <input
-                            defaultValue={art.price}
+                            defaultValue={polishedArt.price}
                             {...register("price", {
                                 required:
                                     { value: true, message: "You must provide the price for the item." },
@@ -92,7 +92,7 @@ const UpdateArt = ({ art, closeModal, handleUpdate }) => {
                     <div className="lg:col-span-2 w-full flex flex-col gap-3">
                         <label className="font-medium" htmlFor="short_description">Short Description*</label>
                         <textarea
-                            defaultValue={art.short_description}
+                            defaultValue={polishedArt.short_description}
                             {...register("short_description", {
                                 required:
                                     { value: true, message: "You must write something." }
@@ -106,7 +106,7 @@ const UpdateArt = ({ art, closeModal, handleUpdate }) => {
                     <div className="w-full flex flex-col gap-3">
                         <label className="font-medium" htmlFor="rating">Rating*</label>
                         <input
-                            defaultValue={art.rating}
+                            defaultValue={polishedArt.rating}
                             {...register("rating", {
                                 required:
                                     { value: true, message: "You must provide a rating for the item." },
@@ -126,7 +126,7 @@ const UpdateArt = ({ art, closeModal, handleUpdate }) => {
                     <div className="w-full flex flex-col gap-3">
                         <label className="font-medium" htmlFor="customization">Customization*</label>
                         <select
-                        defaultValue={art.customization}
+                        defaultValue={polishedArt.customization}
                             {...register("customization", {
                                 required: { value: true, message: "You must select a Customization option." }
                             })}
@@ -143,10 +143,10 @@ const UpdateArt = ({ art, closeModal, handleUpdate }) => {
                     <div className="w-full flex flex-col gap-3">
                         <label className="font-medium" htmlFor="processing_time">Processing Time*</label>
                         <input
-                        defaultValue={art.processing_time}
+                        defaultValue={polishedArt.processing_time}
                             {...register("processing_time", {
                                 required:
-                                    { value: true, message: "You must provide processing time for the art item." }
+                                    { value: true, message: "You must provide processing time for the polishedArt item." }
                             })}
                             className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="processing_time" id="processing_time" placeholder="Processing Time" />
                         {
@@ -157,10 +157,10 @@ const UpdateArt = ({ art, closeModal, handleUpdate }) => {
                     <div className="w-full flex flex-col gap-3">
                         <label className="font-medium" htmlFor="stock_status">Stock Status*</label>
                         <input
-                        defaultValue={art.stock_status}
+                        defaultValue={polishedArt.stock_status}
                             {...register("stock_status", {
                                 required:
-                                    { value: true, message: "You must select stock status for the art item." }
+                                    { value: true, message: "You must select stock status for the polishedArt item." }
                             })}
                             className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="stock_status" list="stocks" id="stock_status" placeholder="Select or Add Stock Status" />
                         <datalist id="stocks">
@@ -173,14 +173,14 @@ const UpdateArt = ({ art, closeModal, handleUpdate }) => {
                     </div>
                 </div>
                 <button className="px-3 py-2 font-bold rounded-lg bg-[#235d62] text-white border border-[#235d62] hover:text-[#235d62] hover:bg-transparent transition duration-500"
-                //  onClick={() => { closeModal, handleUpdate(art._id) }}
+                //  onClick={() => { closeModal, handleUpdate(polishedArt._id) }}
                  >Update</button>
             </form>
         </div>
     );
 };
 UpdateArt.propTypes = {
-    art: PropTypes.object,
+    polishedArt: PropTypes.object,
     closeModal: PropTypes.func,
     handleUpdate: PropTypes.func,
 }
