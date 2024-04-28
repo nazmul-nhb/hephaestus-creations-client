@@ -24,7 +24,7 @@ const MyArts = () => {
         const deletableArt = myArts?.find(art => art._id === id);
         Swal.fire({
             title: 'Are You Sure?',
-            text: `Do you want to Delete "${deletableArt.item_name}"?`,
+            text: `Do you want to delete "${deletableArt.item_name}"?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#ff0000',
@@ -32,7 +32,7 @@ const MyArts = () => {
             confirmButtonText: 'Yes, Delete It!'
         }).then((result) => {
             if (result.isConfirmed) {
-                setArtsLoading(true);
+                // setArtsLoading(true);
                 fetch(`http://localhost:5000/arts/id/${id}`, { method: "DELETE" })
                     .then(res => res.json()).then(data => {
                         console.log(data);
@@ -44,7 +44,7 @@ const MyArts = () => {
                             )
                             const remainingArts = myArts?.filter(art => art._id !== id);
                             setMyArts(remainingArts);
-                            setArtsLoading(false);
+                            // setArtsLoading(false);
                         }
                     })
             }

@@ -27,8 +27,8 @@ const AddArts = () => {
                 console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
-                        title: 'Done!',
-                        text: 'Art Item Added Successfully',
+                        title: 'Congratulations!!',
+                        text: `"${newItem.item_name}" Added Successfully!`,
                         icon: 'success',
                         confirmButtonText: 'Close'
                     });
