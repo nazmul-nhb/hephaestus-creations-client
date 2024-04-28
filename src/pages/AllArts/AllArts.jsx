@@ -11,64 +11,47 @@ const AllArts = () => {
                 <title>All Arts & Crafts List - Hephaestus Creations</title>
             </Helmet>
             <h2 className="mb-4 text-2xl font-semibold leading-tight">All Art & Craft Items</h2>
-            <div className="container p-2 mx-auto sm:p-4 text-gray-100 dark:text-gray-800">
-                <div className="overflow-x-auto">
-                    <table className="min-w-full text-xs">
-                        <colgroup>
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                            {/* <col /> */}
-                            <col />
-                        </colgroup>
-                        <thead className="bg-gray-700 dark:bg-gray-300">
-                            <tr className="text-left">
-                                <th className="p-3"></th>
-                                <th className="p-3">Thumbnail</th>
-                                <th className="p-3">Item Name</th>
-                                <th className="p-3">Subcategory</th>
-                                <th className="p-3">Price</th>
-                                {/* <th className="p-3">Processing Time</th> */}
-                                <th className="p-3 text-right">View Details</th>
-                            </tr>
-                        </thead>
-                        {
-                            arts?.map((art, index) =>
-                                <tbody key={art._id}>
-                                    <tr className="border-b border-opacity-20 border-gray-700 dark:border-gray-300 bg-gray-900 dark:bg-gray-50">
-                                        <td className="p-3">
-                                            <p className="flex gap-2 items-center">{index + 1}.</p>
-                                        </td>
-                                        <td className="p-3">
-                                            <p className="flex gap-2 items-center">
-                                                <img className="w-14" src={art.image} alt={art.item_name} />
-                                            </p>
-                                        </td>
-                                        <td className="p-3">
-                                            <p className="flex gap-2 items-center">
-                                                {art.item_name}
-                                            </p>
-                                        </td>
-                                        <td className="p-3">
-                                            <p>{art.subcategory_name}</p>
-                                        </td>
-                                        <td className="p-3">
-                                            <p>${art.price}</p>
-                                        </td>
-                                        {/* <td className="p-3">
-                                            <p>{art.processing_time}</p>
-                                        </td> */}
-                                        <td className="p-3 text-right">
-                                            <p><Link to={`/details/${art._id}`}><Button buttonText={'View Details'}></Button></Link></p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            )
-                        }
-                    </table>
-                </div>
+            <div className="container overflow-x-auto">
+                <table className="table text-xs md:text-sm">
+                    <thead className=" text-sm md:text-base">
+                        <tr>
+                            <th>#</th>
+                            <th>Image, Name & Category</th>
+                            <th>Price</th>
+                            <th className="pl-4">View Details</th>
+                        </tr>
+                    </thead>
+                    {
+                        arts?.map((art, index) =>
+                            <tbody key={art._id}>
+                                <tr>
+                                    <th>{index + 1}.</th>
+                                    <td>
+                                        <div className="flex items-center gap-3">
+                                            <div className="avatar hidden md:inline">
+                                                <div className="mask mask-squircle w-12 h-12">
+                                                    <img src={art.image} alt={art.item_name} />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div className="font-bold"> {art.item_name}</div>
+                                                <div className="opacity-50">{art.subcategory_name}</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>${art.price}</td>
+                                    <th>
+                                        <Link to={`/details/${art._id}`}>
+                                            <Button buttonText={'View Details'}></Button>
+                                        </Link>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        )
+                    }
+
+
+                </table>
             </div>
         </section>
     );
