@@ -1,10 +1,30 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import { Helmet } from "react-helmet-async";
+import { useEffect, useState } from "react";
+import loader from '../../assets/loader.svg';
 
 const AllArts = () => {
-    const arts = useLoaderData();
+    const [arts, setArts] = useState([]);
+    const [artsLoading, setArtsLoading] = useState(false);
 
+    useEffect(() => {
+        setArtsLoading(true);
+        fetch('https://hephaestus-creations-server.vercel.app/arts')
+            .then(res => res.json())
+            .then(data => {
+                setArts(data);
+                setArtsLoading(false);
+            })
+    }, [])
+
+    if (artsLoading) {
+        return (
+            <div className="flex items-center justify-center space-x-2">
+                <img src={loader} alt="loader" />
+            </div>
+        )
+    }
     return (
         <section className="mx-2 md:mx-8 my-2 md:my-8 p-2 md:px-4">
             <Helmet>
@@ -18,7 +38,7 @@ const AllArts = () => {
                             <th>#</th>
                             <th>Image, Name & Category</th>
                             <th>Price</th>
-                            <th className="pl-4">View Details</th>
+                            <th className="pl-6">View Details</th>
                         </tr>
                     </thead>
                     {
@@ -40,9 +60,9 @@ const AllArts = () => {
                                         </div>
                                     </td>
                                     <td>${art.price}</td>
-                                    <th>
+                                    <th className="text-[10px] md:text-base">
                                         <Link to={`/details/${art._id}`}>
-                                            <Button buttonText={'View Details'}></Button>
+                                            <Button className={'border !rounded-3xl font-medium !px-4'} hoverBgColor={'transparent'} hoverColor={'white'} color={'#272c50'} buttonText={'View Details'}></Button>
                                         </Link>
                                     </th>
                                 </tr>

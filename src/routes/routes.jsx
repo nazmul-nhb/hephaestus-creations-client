@@ -30,8 +30,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/all-arts',
-                element: <AllArts></AllArts>,
-                loader: () => fetch('https://hephaestus-creations-server.vercel.app/arts')
+                element: <AllArts></AllArts>
             },
             {
                 path: '/my-arts',
