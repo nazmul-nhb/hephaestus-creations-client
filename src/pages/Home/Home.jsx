@@ -11,7 +11,7 @@ const Home = () => {
 
     useEffect(() => {
         setArtsLoading(true);
-        fetch('http://localhost:5000/arts')
+        fetch('https://hephaestus-creations-server.vercel.app/arts')
             .then(res => res.json())
             .then(data => {
                 setArts(data);
@@ -21,7 +21,7 @@ const Home = () => {
 
     useEffect(() => {
         setArtsLoading(true);
-        fetch('http://localhost:5000/categories')
+        fetch('https://hephaestus-creations-server.vercel.app/categories')
             .then(res => res.json())
             .then(data => {
                 setCategories(data);

@@ -14,7 +14,7 @@ const MyArts = () => {
 
     const loadMyArts = () => {
         setArtsLoading(true);
-        fetch(`http://localhost:5000/arts/email/${user?.email}`)
+        fetch(`https://hephaestus-creations-server.vercel.app/arts/email/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyArts(data);
@@ -34,7 +34,7 @@ const MyArts = () => {
         setCustomizationFilter(customization);
         if (customization === 'true' || customization === 'false') {
             setArtsLoading(true);
-            fetch(`http://localhost:5000/arts/filter/${user.email}/${customization}`)
+            fetch(`https://hephaestus-creations-server.vercel.app/arts/filter/${user.email}/${customization}`)
                 .then(res => res.json())
                 .then(data => {
                     setMyArts(data);
@@ -58,7 +58,7 @@ const MyArts = () => {
             confirmButtonText: 'Yes, Delete It!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/arts/id/${id}`, { method: "DELETE" })
+                fetch(`https://hephaestus-creations-server.vercel.app/arts/id/${id}`, { method: "DELETE" })
                     .then(res => res.json()).then(data => {
                         console.log(data);
                         if (data.deletedCount > 0) {

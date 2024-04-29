@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
             {
                 path: '/all-arts',
                 element: <AllArts></AllArts>,
-                loader: () => fetch('http://localhost:5000/arts')
+                loader: () => fetch('https://hephaestus-creations-server.vercel.app/arts')
             },
             {
                 path: '/my-arts',
@@ -43,13 +43,13 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/details/:id',
-                element: <PrivateRoute><ArtDetails/></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/arts/id/${params.id}`)
+                element: <PrivateRoute><ArtDetails /></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://hephaestus-creations-server.vercel.app/arts/id/${params.id}`)
             },
             {
                 path: '/category-details/:id',
-                element: <CategoryDetails/>,
-                loader: ({params}) => fetch(`http://localhost:5000/categories/id/${params.id}`)
+                element: <CategoryDetails />,
+                loader: ({ params }) => fetch(`https://hephaestus-creations-server.vercel.app/categories/id/${params.id}`)
             },
             {
                 path: '/register',

@@ -7,7 +7,7 @@ const CategoryDetails = () => {
     const category = useLoaderData();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/arts/category/${category.category_name}`)
+        fetch(`https://hephaestus-creations-server.vercel.app/arts/category/${category.category_name}`)
             .then(res => res.json())
             .then(data => setArts(data))
     }, [category])

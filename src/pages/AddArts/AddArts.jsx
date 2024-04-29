@@ -15,7 +15,7 @@ const AddArts = () => {
         newItem.rating = parseFloat(newItem.rating);
         console.log(newItem);
         // send data to the server
-        fetch('http://localhost:5000/arts', {
+        fetch('https://hephaestus-creations-server.vercel.app/arts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

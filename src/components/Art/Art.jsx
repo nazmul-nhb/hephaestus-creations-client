@@ -23,7 +23,7 @@ const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
 
     const handleUpdate = (id, updatedArt) => {
         setArtsLoading(true);
-        fetch(`http://localhost:5000/arts/id/${id}`, {
+        fetch(`https://hephaestus-creations-server.vercel.app/arts/id/${id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
