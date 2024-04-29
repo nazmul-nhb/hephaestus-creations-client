@@ -50,7 +50,6 @@ const AllArts = () => {
                         )
                     }
 
-
                 </table>
             </div>
         </section>

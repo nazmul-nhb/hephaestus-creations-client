@@ -69,7 +69,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className="flex items-center gap-0 md:gap-4 mx-0 shadow-md px-2 py-3 md:px-[5.4%] sticky top-0 bg-white bg-opacity-95 z-20">
+        <nav className="flex items-center gap-0 md:gap-4 mx-0 shadow-md px-2 py-3 md:px-[5.4%] sticky top-0 bg-gradient-to-r from-[#d3d7d5ed] to-[#e9e4e4f8] bg-opacity-100 z-20">
             <div className="lg:hidden text-4xl md:text-5xl cursor-pointer" onClick={() => setOpen(!open)}>
                 {
                     open
@@ -87,7 +87,7 @@ const Navbar = () => {
                     </div>
                 </Link>
                 <div className="text-sm xl:text-base">
-                    <ul className={`w-1/2 lg:w-full flex flex-col lg:flex-row justify-start lg:justify-center gap-2 font-medium duration-500 absolute lg:static shadow-md shadow-slate-700 lg:shadow-none h-screen lg:h-auto p-4 lg:p-0 ${open ? 'left-0 top-16 md:top-20 bg-white bg-opacity-95 flex z-10' : '-left-full top-16 md:top-20'}`}>
+                    <ul className={`w-1/2 lg:w-full flex flex-col lg:flex-row justify-start lg:justify-center gap-2 font-medium duration-500 absolute lg:static shadow-lg shadow-slate-700 lg:shadow-none h-screen lg:h-auto p-4 lg:p-0 ${open ? 'left-0 top-16 md:top-20 bg-gradient-to-r from-[#d3d7d5ed] to-[#e9e4e4f8] bg-opacity-100 flex z-10' : '-left-full top-16 md:top-20'}`}>
                         {navLinks}
                     </ul>
                 </div>

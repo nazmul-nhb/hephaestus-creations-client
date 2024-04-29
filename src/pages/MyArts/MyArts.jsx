@@ -95,7 +95,7 @@ const MyArts = () => {
                     <select
                         onChange={handleFilter}
                         value={customizationFilter}
-                        className="p-2 rounded-lg bg-[#F3F3F3] text-center outline outline-gray-700"
+                        className="p-2 rounded-lg text-center outline outline-gray-700"
                         name="customization" id="customization">
                         <option value="">Filter by Customization</option>
                         <option value="true">Customization: Yes</option>

@@ -125,11 +125,11 @@ const Login = () => {
     }
 
     return (
-        <section className="mx-2 md:mx-8 my-2 md:my-8 p-2 md:px-4 text-teal-900 space-y-6 flex flex-col lg:flex-row justify-around items-center">
+        <section className="mx-2 md:mx-8 my-2 md:my-8 p-2 md:px-4 text-[midnightblue] space-y-6 flex flex-col lg:flex-row justify-around items-center">
             <Helmet>
                 <title>Login - Hephaestus Creations</title>
             </Helmet>
-            <form onSubmit={handleSubmit(handleLogin)} className="flex flex-col gap-6 w-[96%] md:w-4/5 lg:w-1/2 px-4 lg:px-20 py-4 lg:py-10 bg-white shadow-lg shadow-[#3c3939] border border-[#d3d0d0] rounded-md">
+            <form onSubmit={handleSubmit(handleLogin)} className="flex flex-col gap-6 w-[96%] md:w-4/5 lg:w-1/2 px-4 lg:px-20 py-4 lg:py-10 bg-gradient-to-r from-[#86cfa157] to-[#9bc7a1a3] shadow-lg shadow-[#3c3939] border border-[#d3d0d0] rounded-md">
                 <h2 className="text-2xl font-medium">Please, Login</h2>
                 <div className="flex flex-col gap-3">
                     <label htmlFor="email">Your Email</label>
@@ -159,12 +159,12 @@ const Login = () => {
                     </div>
                 </div>
 
-                <Button buttonType={'submit'} className={'border w-full text-xl font-semibold'} buttonText={'Login'} color={'teal'} hoverColor={'white'} hoverBgColor={'transparent'}></Button>
+                <Button buttonType={'submit'} className={'border w-full text-xl font-semibold'} buttonText={'Login'} color={'midnightblue'} hoverColor={'white'} hoverBgColor={'transparent'}></Button>
                 <p className="text-center text-sm md:text-base font-medium">New to this site? <Link className="text-red-700 hover:text-blue-800" to={'/register'}>Register Here!</Link></p>
             </form>
 
             {/* Social Login */}
-            <div className="flex flex-col gap-2 pt-6 lg:pt-0">
+            <div className="flex flex-col gap-2 pt-6 lg:pt-0 text-[mediumslateblue]">
                 <h3 className="text-center">Or</h3>
                 <h3 className="text-center text-xl font-semibold">Login Using Social Media</h3>
                 <div className="flex gap-4 justify-center items-center text-3xl">

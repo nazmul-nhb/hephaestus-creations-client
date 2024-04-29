@@ -46,7 +46,7 @@ const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
     }
 
     const [text] = useTypewriter({
-        words: [`Price: $${price}`],
+        words: [`${price}`],
         loop: true,
     })
 
@@ -59,32 +59,32 @@ const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
     }
 
     return (
-        <div className='flex flex-col md:flex-row gap-5 border shadow-md p-2 rounded-lg bg-gradient-to-r from-[#cf86ba57] to-[#aad96da3]'>
+        <div className='flex flex-col md:flex-row gap-5 border border-[#bbbece41] shadow-md shadow-[#272c5041] p-2 rounded-lg bg-[#bbbece41]'>
             <div className="flex-1">
                 <div className="relative h-full">
-                    <img className="rounded-lg w-full h-full" src={image} alt={item_name} />
+                    <img className={"rounded-lg w-full h-full"} src={image} alt={item_name} />
                     <h3 className={`w-full flex items-center justify-center gap-1 bg-opacity-80 absolute bottom-0 px-1 rounded-b-lg text-sm text-center font-semibold text-white border ${customization ? 'border-[#16a34a] bg-[#16a34a]' : 'border-[#ea580c] bg-[#ea580c]'}`}><span>Rating: </span>{rating} <FaStar /></h3>
                 </div>
             </div>
-            <div className="flex-1 flex flex-col justify-between gap-2">
-                <h3 className="text-lg font-semibold">{item_name}</h3>
-                <h3 className="flex-grow text-lg font-bold">{text} <Cursor cursorColor='red' /></h3>
-                <h4 className="flex-grow "><span>Stock: </span>{stock_status}</h4>
-                <h4 className="flex-grow flex items-center gap-1"><span className='flex items-center gap-1'>{customization ? <TbEdit /> : <TbEditOff />} Customization: </span>{customization ? "Yes" : "No"}</h4>
+            <div className="flex-1 flex flex-col justify-between gap-2 text-gray-900">
+                <h3 className={`font-semibold ${customization ? 'text-[slateblue]' : 'text-[steelblue]'}`}>{item_name}</h3>
+                <h3 className={`flex-grow font-bold ${customization ? 'text-[green]' : 'text-[red]'}`}><span className='font-bold'>Price: </span>${text} <Cursor cursorColor='red' /></h3>
+                <h4 className={`flex-grow text-sm font-medium ${stock_status === 'In Stock' ? 'text-[green]' : 'text-[red]'}`}><span className='font-semibold'>Stock: </span>{stock_status}</h4>
+                <h4 className={`flex-grow flex items-center gap-1 text-sm font-medium ${customization ? 'text-[green]' : 'text-[red]'}`}><span className='flex items-center gap-1'>{customization ? <TbEdit /> : <TbEditOff />} <span className="font-semibold">Customization: </span></span>{customization ? "Yes" : "No"}</h4>
                 {
                     fromCategory && <div className="flex-1 flex flex-col justify-between gap-2">
-                        <h4 className="flex-grow "><span>Processing Time: </span>{processing_time}</h4>
-                        <h4 className="flex-grow "><span>Short Description: </span>{short_description.slice(0, 48)}...</h4>
+                        <h4 className="flex-grow "><span className='font-semibold'>Processing Time: </span>{processing_time}</h4>
+                        <h4 className="flex-grow "><span className='font-semibold'>Short Description: </span>{short_description.slice(0, 64)}...</h4>
                     </div>
                 }
 
                 {
-                    !modifiable ? <Link to={`/details/${_id}`}><Button buttonText={'View Details'} color={'red'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border border-red-700 w-full'}></Button></Link>
+                    !modifiable ? <Link to={`/details/${_id}`}><Button buttonText={'View Details'} color={customization ? 'midnightblue' : 'slateblue'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border w-full font-medium tracking-wide'}></Button></Link>
                         : <div className="flex justify-between gap-2">
-                            <button onClick={() => setShowModal(true)} className='flex items-center gap-1'>
+                            <button onClick={() => setShowModal(true)} className='flex items-center gap-1 border text-white border-green-900 px-2 rounded-3xl bg-green-900'>
                                 <RiFileEditFill /> Update
                             </button>
-                            <button onClick={() => handleDelete(_id)} className='flex items-center gap-1'>
+                            <button onClick={() => handleDelete(_id)} className='flex items-center gap-1 border text-white border-red-700 px-2 rounded-3xl bg-red-700'>
                                 <RiDeleteBin6Line /> Delete
                             </button>
                         </div>
