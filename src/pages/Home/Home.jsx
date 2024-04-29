@@ -42,10 +42,10 @@ const Home = () => {
         <section className="mx-2 md:mx-8 my-2 md:my-8 p-2 md:px-4">
             {/* Banner */}
             <div className="gap-4 my-2 md:my-4 flex flex-col-reverse xl:flex-row items-center justify-between px-2 md:px-8 py-2 rounded-lg shadow-xl bg-gradient-to-r from-[#77948157] to-[#4c00ffa3]">
-                <div className="">
+                <div className="flex-1">
                     This is Home Banner
                 </div>
-                <Slider arts={arts}></Slider>
+                <Slider className="flex-1" arts={arts}></Slider>
             </div>
             {/* Our Arts & Crafts */}
             <Arts arts={arts}></Arts>

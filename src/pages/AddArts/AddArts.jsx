@@ -193,8 +193,8 @@ const AddArts = () => {
                     <div className="flex flex-col gap-3">
                         <label className="font-medium" htmlFor="user_email">Your Email*</label>
                         <input
+                            value={user?.email}
                             {...register("user_email", {
-                                value: `${user?.email || ''}`,
                                 required:
                                     { value: true, message: "You must provide your email address." }
                             })}
@@ -207,8 +207,8 @@ const AddArts = () => {
                     <div className="flex flex-col gap-3">
                         <label className="font-medium" htmlFor="user_name">Your Name*</label>
                         <input
+                            value={user?.displayName}
                             {...register("user_name", {
-                                value: `${user?.displayName || ''}`,
                                 required:
                                     { value: true, message: "You must provide your name." }
                             })}

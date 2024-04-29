@@ -11,9 +11,9 @@ import Swal from 'sweetalert2';
 import loader from '../../assets/loader.svg';
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
 
-const Art = ({ art, modifiable, handleDelete }) => {
+const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
     const [polishedArt, setPolishedArt] = useState(art);
-    const { _id, image, item_name, price, rating, customization, stock_status } = polishedArt;
+    const { _id, image, item_name, price, rating, customization, stock_status, processing_time, short_description } = polishedArt;
     const [artsLoading, setArtsLoading] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
@@ -59,7 +59,7 @@ const Art = ({ art, modifiable, handleDelete }) => {
     }
 
     return (
-        <div className='flex gap-5 border shadow-md p-2 rounded-lg bg-gradient-to-r from-[#cf86ba57] to-[#aad96da3]'>
+        <div className='flex flex-col md:flex-row gap-5 border shadow-md p-2 rounded-lg bg-gradient-to-r from-[#cf86ba57] to-[#aad96da3]'>
             <div className="flex-1">
                 <div className="relative h-full">
                     <img className="rounded-lg w-full h-full" src={image} alt={item_name} />
@@ -71,6 +71,13 @@ const Art = ({ art, modifiable, handleDelete }) => {
                 <h3 className="flex-grow text-lg font-bold">{text} <Cursor cursorColor='red' /></h3>
                 <h4 className="flex-grow "><span>Stock: </span>{stock_status}</h4>
                 <h4 className="flex-grow flex items-center gap-1"><span className='flex items-center gap-1'>{customization ? <TbEdit /> : <TbEditOff />} Customization: </span>{customization ? "Yes" : "No"}</h4>
+                {
+                    fromCategory && <div className="flex-1 flex flex-col justify-between gap-2">
+                        <h4 className="flex-grow "><span>Processing Time: </span>{processing_time}</h4>
+                        <h4 className="flex-grow "><span>Short Description: </span>{short_description.slice(0, 48)}...</h4>
+                    </div>
+                }
+
                 {
                     !modifiable ? <Link to={`/details/${_id}`}><Button buttonText={'View Details'} color={'red'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border border-red-700 w-full'}></Button></Link>
                         : <div className="flex justify-between gap-2">
@@ -103,6 +110,7 @@ const Art = ({ art, modifiable, handleDelete }) => {
 Art.propTypes = {
     art: PropTypes.object,
     modifiable: PropTypes.bool,
+    fromCategory: PropTypes.bool,
     handleDelete: PropTypes.func,
     handleUpdate: PropTypes.func,
 }
