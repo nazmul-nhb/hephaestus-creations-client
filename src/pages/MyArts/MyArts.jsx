@@ -11,7 +11,6 @@ const MyArts = () => {
     const [artsLoading, setArtsLoading] = useState(false);
     const [customizationFilter, setCustomizationFilter] = useState('');
 
-
     const loadMyArts = () => {
         setArtsLoading(true);
         fetch(`https://hephaestus-creations-server.vercel.app/arts/email/${user?.email}`)
@@ -50,7 +49,7 @@ const MyArts = () => {
         const deletableArt = myArts?.find(art => art._id === id);
         Swal.fire({
             title: 'Are You Sure?',
-            text: `Do you want to delete "${deletableArt.item_name}"?`,
+            text: `Do you want to delete "${deletableArt?.item_name}"?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#ff0000',
@@ -60,16 +59,18 @@ const MyArts = () => {
             if (result.isConfirmed) {
                 fetch(`https://hephaestus-creations-server.vercel.app/arts/id/${id}`, { method: "DELETE" })
                     .then(res => res.json()).then(data => {
-                        console.log(data);
                         if (data.deletedCount > 0) {
                             Swal.fire(
                                 'Deleted!',
-                                'Your Art has been deleted.',
+                                'Item has been deleted!',
                                 'success'
                             )
                             const remainingArts = myArts?.filter(art => art._id !== id);
                             setMyArts(remainingArts);
                         }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error)
                     })
             }
         })

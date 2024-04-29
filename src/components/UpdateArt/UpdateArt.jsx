@@ -8,9 +8,9 @@ const UpdateArt = ({ polishedArt, closeModal, handleUpdate }) => {
         updatedArt.customization = updatedArt.customization === "true";
         updatedArt.price = parseFloat(updatedArt.price);
         updatedArt.rating = parseFloat(updatedArt.rating);
-        console.log(updatedArt);
-        closeModal();
+
         handleUpdate(polishedArt._id, updatedArt)
+        closeModal();
     }
 
     return (

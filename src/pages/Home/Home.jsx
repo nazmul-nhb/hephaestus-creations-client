@@ -28,7 +28,6 @@ const Home = () => {
                 setArtsLoading(false);
             })
     }, [])
-    console.log(categories);
 
     if (artsLoading) {
         return (

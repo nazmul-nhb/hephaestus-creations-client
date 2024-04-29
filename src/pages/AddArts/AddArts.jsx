@@ -13,7 +13,7 @@ const AddArts = () => {
         newItem.customization = newItem.customization === "true";
         newItem.price = parseFloat(newItem.price);
         newItem.rating = parseFloat(newItem.rating);
-        console.log(newItem);
+
         // send data to the server
         fetch('https://hephaestus-creations-server.vercel.app/arts', {
             method: 'POST',
@@ -24,7 +24,6 @@ const AddArts = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Congratulations!!',

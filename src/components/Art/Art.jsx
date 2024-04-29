@@ -37,9 +37,9 @@ const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
                     setArtsLoading(false);
                     Swal.fire({
                         title: 'Success!',
-                        text: `${polishedArt.item_name} Updated Successfully!`,
+                        text: `"${polishedArt?.item_name}" Updated Successfully!`,
                         icon: 'success',
-                        confirmButtonText: 'Cool'
+                        confirmButtonText: 'Okay!'
                     })
                 }
             })
