@@ -53,7 +53,7 @@ const AddArts = () => {
                                 required:
                                     { value: true, message: "You must provide a valid photo URL." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="image" id="image" placeholder="Your Photo URL for the art" />
+                            className="p-2 rounded-lg border" type="text" name="image" id="image" placeholder="Your Photo URL for the art" />
                         {
                             errors.image && <p className="text-red-700">{errors.image.message}</p>
                         }
@@ -66,7 +66,7 @@ const AddArts = () => {
                                 required:
                                     { value: true, message: "You must provide a valid Name for the art item." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="item_name" id="item_name" placeholder="Art/Craft Name" />
+                            className="p-2 rounded-lg border" type="text" name="item_name" id="item_name" placeholder="Art/Craft Name" />
                         {
                             errors.item_name && <p className="text-red-700">{errors.item_name.message}</p>
                         }
@@ -79,7 +79,7 @@ const AddArts = () => {
                                 required:
                                     { value: true, message: "You must select a valid Subcategory." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" list="subcategory_names" name="subcategory_name" id="subcategory_name" placeholder="Select or Add A Subcategory"></input>
+                            className="p-2 rounded-lg border" type="text" list="subcategory_names" name="subcategory_name" id="subcategory_name" placeholder="Select or Add A Subcategory"></input>
                         <datalist id="subcategory_names">
                             {/* <option value={""}>Select A Subcategory</option> */}
                             <option value="Clay Sculpture">Clay Sculpture</option>
@@ -105,7 +105,7 @@ const AddArts = () => {
                                     value: 0.1, message: "Price should not be less than 0.1"
                                 },
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="number" step="0.01" name="price" id="price" placeholder="Price" />
+                            className="p-2 rounded-lg border" type="number" step="0.01" name="price" id="price" placeholder="Price" />
                         {
                             errors.price && <p className="text-red-700">{errors.price.message}</p>
                         }
@@ -118,7 +118,7 @@ const AddArts = () => {
                                 required:
                                     { value: true, message: "You must write something." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="short_description" id="short_description" placeholder="Write a Short Description of the Art/Craft Item" />
+                            className="p-2 rounded-lg border" type="text" name="short_description" id="short_description" placeholder="Write a Short Description of the Art/Craft Item" />
                         {
                             errors.short_description && <p className="text-red-700">{errors.short_description.message}</p>
                         }
@@ -137,7 +137,7 @@ const AddArts = () => {
                                     value: 5.0, message: "Rating cannot exceed 5.0!"
                                 },
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="number" step="0.01" name="rating" id="rating" placeholder="Critic Rating" />
+                            className="p-2 rounded-lg border" type="number" step="0.01" name="rating" id="rating" placeholder="Critic Rating" />
                         {
                             errors.rating && <p className="text-red-700">{errors.rating.message}</p>
                         }
@@ -149,7 +149,7 @@ const AddArts = () => {
                             {...register("customization", {
                                 required: { value: true, message: "You must select a Customization option." }
                             })}
-                            className="p-[9.75px] rounded-lg bg-[#F3F3F3]" name="customization" id="customization">
+                            className="p-[9.75px] rounded-lg border" name="customization" id="customization">
                             <option value="">Select Customization Option</option>
                             <option value="true">Yes</option>
                             <option value="false">No</option>
@@ -166,7 +166,7 @@ const AddArts = () => {
                                 required:
                                     { value: true, message: "You must provide processing time for the art item." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="processing_time" id="processing_time" placeholder="Processing Time" />
+                            className="p-2 rounded-lg border" type="text" name="processing_time" id="processing_time" placeholder="Processing Time" />
                         {
                             errors.processing_time && <p className="text-red-700">{errors.processing_time.message}</p>
                         }
@@ -179,7 +179,7 @@ const AddArts = () => {
                                 required:
                                     { value: true, message: "You must select stock status for the art item." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="stock_status" list="stocks" id="stock_status" placeholder="Select or Add Stock Status" />
+                            className="p-2 rounded-lg border" type="text" name="stock_status" list="stocks" id="stock_status" placeholder="Select or Add Stock Status" />
                         <datalist id="stocks">
                             <option value="In Stock">In Stock</option>
                             <option value="Made to Order">Made to Order</option>
@@ -197,7 +197,7 @@ const AddArts = () => {
                                 required:
                                     { value: true, message: "You must provide your email address." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="email" name="user_email" id="user_email" placeholder="Your Email" />
+                            className="p-2 rounded-lg border" type="email" name="user_email" id="user_email" placeholder="Your Email" />
                         {
                             errors.user_email && <p className="text-red-700">{errors.user_email.message}</p>
                         }
@@ -211,7 +211,7 @@ const AddArts = () => {
                                 required:
                                     { value: true, message: "You must provide your name." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="user_name" id="user_name" placeholder="Your Name" />
+                            className="p-2 rounded-lg border" type="text" name="user_name" id="user_name" placeholder="Your Name" />
                         {
                             errors.user_name && <p className="text-red-700">{errors.user_name.message}</p>
                         }

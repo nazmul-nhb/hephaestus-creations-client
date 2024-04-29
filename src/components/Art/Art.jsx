@@ -13,7 +13,7 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter'
 
 const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
     const [polishedArt, setPolishedArt] = useState(art);
-    const { _id, image, item_name, price, rating, customization, stock_status, processing_time, short_description } = polishedArt;
+    const { _id, subcategory_name, image, item_name, price, rating, customization, stock_status, processing_time, short_description } = polishedArt;
     const [artsLoading, setArtsLoading] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
@@ -63,6 +63,9 @@ const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
             <div className="flex-1">
                 <div className="relative h-full">
                     <img className={"rounded-lg w-full h-full"} src={image} alt={item_name} />
+                    {
+                        fromCategory && <h3 className={`w-full flex items-center justify-center gap-1 bg-opacity-80 absolute top-0 px-1 rounded-t-lg text-sm text-center font-medium text-white border ${customization ? 'border-[#16a34a] bg-[#16a34a]' : 'border-[#ea580c] bg-[#ea580c]'}`}>{subcategory_name}</h3>
+                    }
                     <h3 className={`w-full flex items-center justify-center gap-1 bg-opacity-80 absolute bottom-0 px-1 rounded-b-lg text-sm text-center font-semibold text-white border ${customization ? 'border-[#16a34a] bg-[#16a34a]' : 'border-[#ea580c] bg-[#ea580c]'}`}><span>Rating: </span>{rating} <FaStar /></h3>
                 </div>
             </div>

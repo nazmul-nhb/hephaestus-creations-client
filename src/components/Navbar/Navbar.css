@@ -1,7 +1,7 @@
 nav ul a.active {
     transition: 1s;
     border-bottom: 1px solid teal;
-    background-color: rgb(211, 223, 226) !important;
+    /* background-color: rgb(211, 223, 226) !important; */
     color: teal !important;
 }
 
