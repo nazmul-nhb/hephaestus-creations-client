@@ -1,32 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "../Button/Button";
 import Art from "../Art/Art";
-import loader from '../../assets/loader.svg';
+import PropTypes from 'prop-types';
 
-const Arts = () => {
-    const [arts, setArts] = useState([]);
+const Arts = ({ arts }) => {
     const [artsLength, setArtsLength] = useState(6);
-    const [artsLoading, setArtsLoading] = useState(false);
     const [showMore, setShowMore] = useState(false);
 
-
-    useEffect(() => {
-        setArtsLoading(true);
-        fetch('http://localhost:5000/arts')
-            .then(res => res.json())
-            .then(data => {
-                setArts(data);
-                setArtsLoading(false);
-            })
-    }, [])
-
-    if (artsLoading) {
-        return (
-            <div className="flex items-center justify-center space-x-2">
-                <img src={loader} alt="loader" />
-            </div>
-        )
-    }
 
     return (
         <section className="space-y-6">
@@ -48,5 +28,9 @@ const Arts = () => {
         </section>
     );
 };
+
+Arts.propTypes = {
+    arts: PropTypes.array,
+}
 
 export default Arts;
