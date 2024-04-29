@@ -3,6 +3,7 @@ import Slider from "../../components/Slider/Slider";
 import loader from '../../assets/loader.svg';
 import { useEffect, useState } from "react";
 import Categories from "../../components/Categories/Categories";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     const [arts, setArts] = useState([]);
@@ -39,8 +40,18 @@ const Home = () => {
 
     return (
         <section className="mx-2 md:mx-8 my-2 md:my-8 p-2 md:px-4">
+
+            <Helmet>
+                <title>Home - Hephaestus Creations</title>
+            </Helmet>
+
             {/* Banner */}
-            <div className="gap-4 my-2 md:my-4 flex flex-col-reverse xl:flex-row items-center justify-between px-2 md:px-8 py-2 rounded-lg shadow-xl bg-gradient-to-r from-[#77948157] to-[#4c00ffa3]">
+            <div
+                // data-aos="flip-right"
+                // data-aos-offset="300"
+                // data-aos-easing="ease-in-sine"
+                // data-aos-duration="3000"
+                className="gap-4 my-2 md:my-4 flex flex-col-reverse xl:flex-row items-center justify-between px-2 md:px-8 py-2 rounded-lg shadow-xl bg-gradient-to-r from-[#77948157] to-[#4c00ffa3]">
                 <div className="flex-1">
                     This is Home Banner
                 </div>
