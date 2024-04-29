@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Autoplay, Navigation, EffectCube, Pagination } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 const Slider = ({ arts }) => {
     const shuffledArts = [...arts].sort(() => Math.random() - 0.5);
@@ -45,7 +46,12 @@ const Slider = ({ arts }) => {
                 {
                     randomArts.map(art =>
                         <SwiperSlide key={art._id}>
-                            <img src={art.image} alt={art.item_name} />
+                            <div className="flex relative">
+                                <img className='w-full lg:w-[480px] rounded-lg lg:rounded-none' src={art.image} alt={art.item_name} />
+                                <div className="bg-gradient-to-r from-[#ffffff90] to-[#ffffff00] absolute top-0 w-4/5 py-1 px-2">
+                                    <Link className="bg-transparent font-bold text-xl" to={`/details/${art._id}`}>View Details</Link>
+                                </div>
+                            </div>
                         </SwiperSlide>)
                 }
             </Swiper>

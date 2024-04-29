@@ -12,6 +12,7 @@ import ArtDetails from "../pages/ArtDetails/ArtDetails";
 import AllArts from "../pages/AllArts/AllArts";
 import MyArts from "../pages/MyArts/MyArts";
 import Profile from "../pages/Profile/Profile";
+import CategoryDetails from "../pages/CategoryDetails/CategoryDetails";
 
 export const router = createBrowserRouter([
     {
@@ -44,6 +45,11 @@ export const router = createBrowserRouter([
                 path: '/details/:id',
                 element: <PrivateRoute><ArtDetails/></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/arts/id/${params.id}`)
+            },
+            {
+                path: '/category-details/:id',
+                element: <CategoryDetails/>,
+                loader: ({params}) => fetch(`http://localhost:5000/categories/id/${params.id}`)
             },
             {
                 path: '/register',
