@@ -13,8 +13,8 @@ const Footer = () => {
     }
 
     return (
-        <footer className="max-w-[1920px] mx-auto border-2">
-            <div className="px-2 py-3 md:px-20">
+        <footer className="max-w-[1920px] mx-auto bg-[#343b4051]">
+            <div className="px-6 py-8 md:py-12 md:px-20">
                 <div className="flex gap-4 lg:gap-0 flex-col lg:flex-row justify-center lg:items-center lg:justify-between">
                     <div className="flex-1 flex flex-col lg:gap-3 text-center lg:text-left">
                         <h3 className="text-base md:text-2xl font-semibold"><span className="text-[#16a34a]">Hephaestus</span> <span className="text-[#ea580c]">Creations</span></h3>
@@ -25,10 +25,10 @@ const Footer = () => {
                         <Button buttonType={'submit'} color={'#272c50'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border !rounded-3xl font-bold md:text-xl !px-4'} buttonText={"Subscribe to Newsletter"}></Button>
                     </form>
                     <div className="flex-1 flex flex-col gap-1 items-center lg:items-end">
-                        <h3 className="">Contact Us</h3>
-                        <h3 className=""><a href="tel:+8801623732187">+8801623732187</a></h3>
-                        <h3 className=""><a href="mailto:nazmulnhb007@yahoo.com">nazmulnhb007@yahoo.com</a></h3>
-                        <h3 className="">67/5, Art Centre, Dhaka-420</h3>
+                        <h3 className="font-bold">Contact Us</h3>
+                        <h3 className="hover:text-[steelblue] cursor-pointer"><a href="tel:+8801623732187">+8801623732187</a></h3>
+                        <h3 className="hover:text-[steelblue] cursor-pointer"><a href="mailto:nazmulnhb007@yahoo.com">nazmulnhb007@yahoo.com</a></h3>
+                        <h3 className="hover:text-[steelblue] cursor-pointer">67/5, Art Centre, Dhaka-420</h3>
                     </div>
                 </div>
                 <hr className="border border-dotted border-[#12132D40] my-8" />

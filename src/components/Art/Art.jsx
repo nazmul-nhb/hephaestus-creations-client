@@ -69,7 +69,7 @@ const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
                     <h3 className={`w-full flex items-center justify-center gap-1 bg-opacity-80 absolute bottom-0 px-1 rounded-b-lg text-sm text-center font-semibold text-white border ${customization ? 'border-[#16a34a] bg-[#16a34a]' : 'border-[#ea580c] bg-[#ea580c]'}`}><span>Rating: </span>{rating} <FaStar /></h3>
                 </div>
             </div>
-            <div className="flex-1 flex flex-col justify-between gap-2 text-gray-900">
+            <div className="flex-1 flex flex-col justify-between gap-2 text-gray-900 !text-[110%] md:!text-[100%]">
                 <h3 className={`font-semibold ${customization ? 'text-[slateblue]' : 'text-[steelblue]'}`}>{item_name}</h3>
                 <h3 className={`flex-grow font-bold ${customization ? 'text-[green]' : 'text-[red]'}`}><span className='font-bold'>Price: </span>${text} <Cursor cursorColor='red' /></h3>
                 <h4 className={`flex-grow text-sm font-medium ${stock_status === 'In Stock' ? 'text-[green]' : 'text-[red]'}`}><span className='font-semibold'>Stock: </span>{stock_status}</h4>
@@ -83,7 +83,7 @@ const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
 
                 {
                     !modifiable ? <Link to={`/details/${_id}`}><Button buttonText={'View Details'} color={customization ? 'midnightblue' : 'slateblue'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border w-full font-medium tracking-wide'}></Button></Link>
-                        : <div className="flex justify-between gap-2">
+                        : <div className="flex justify-between gap-2 md:text-base">
                             <button onClick={() => setShowModal(true)} className='flex items-center gap-1 border text-white border-green-900 px-2 rounded-3xl bg-green-900'>
                                 <RiFileEditFill /> Update
                             </button>
@@ -96,7 +96,7 @@ const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
             {/* Update Modal */}
             {
                 showModal && (
-                    <dialog open className="w-full xl:w-auto h-full bg-white bg-opacity-95 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg z-20 overflow-y-auto">
+                    <dialog open className="w-full xl:w-auto h-full bg-opacity-95 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg z-20 overflow-y-auto">
                         <UpdateArt
                             polishedArt={polishedArt}
                             handleUpdate={handleUpdate}
