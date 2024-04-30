@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Art from "../../components/Art/Art";
 import loader from '../../assets/loader.svg';
+import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 const CategoryDetails = () => {
     const [arts, setArts] = useState([])
@@ -19,6 +20,11 @@ const CategoryDetails = () => {
             })
     }, [category])
 
+    const [cName] = useTypewriter({
+        words: [`${category.category_name}`],
+        loop: true,
+    })
+
     if (artsLoading) {
         return (
             <div className="flex items-center justify-center space-x-2">
@@ -26,14 +32,26 @@ const CategoryDetails = () => {
             </div>
         )
     }
+
     return (
         <section className="mx-2 md:mx-8 my-2 md:my-8 p-2 md:px-4">
-            <div>
-                <h3><span>Category:</span> {category.category_name}</h3>
-                <h3>Total Items ({arts.length})</h3>
-                <p>{category.description}</p>
+            <div className="flex flex-col gap-4 items-center mb-8">
+                <h3 className="text-xl md:text-3xl font-bold"><span>Category:</span> {cName} <Cursor cursorColor='red' /></h3>
+                <h3 className="text-lg md:text-2xl font-semibold">Total Items: {arts.length}</h3>
+                <p className="w-[88%] text-center text-[midnightblue]">{category.description}</p>
             </div>
             <hr />
+            {
+                arts.length < 1 && <div
+                    data-aos="fade-up"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine"
+                    data-aos-duration="1000"
+                    data-aos-delay="500"
+                    className="h-[67vh] flex items-center justify-center">
+                    <h4 className="border shadow-lg shadow-red-800 border-red-600 p-6 text-lg md:text-3xl font-bold text-red-600 bg-red-100">No Items Found in this Category! </h4>
+                </div>
+            }
             <div className="grid md:grid-cols-2 gap-6">
                 {
                     arts?.map(art => <Art
