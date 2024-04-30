@@ -9,12 +9,16 @@ import { Link } from "react-router-dom";
 import { Slide } from "react-awesome-reveal";
 import hephaestus from '../../assets/hephaestus.jpeg'
 import hephaestusLandscape from '../../assets/hephaestus-landscape.jpg'
+import Marquee from "react-fast-marquee";
+import Review from "../../components/Review/Review";
 
 const Home = () => {
     const [arts, setArts] = useState([]);
     const [artsLoading, setArtsLoading] = useState(false);
     const [categories, setCategories] = useState([]);
+    const [reviews, setReviews] = useState([]);
 
+    // get art data
     useEffect(() => {
         setArtsLoading(true);
         fetch('https://hephaestus-creations-server.vercel.app/arts')
@@ -25,6 +29,7 @@ const Home = () => {
             })
     }, [])
 
+    // get category data
     useEffect(() => {
         setArtsLoading(true);
         fetch('https://hephaestus-creations-server.vercel.app/categories')
@@ -34,6 +39,19 @@ const Home = () => {
                 setArtsLoading(false);
             })
     }, [])
+
+    // get review data
+    useEffect(() => {
+        setArtsLoading(true);
+        fetch('https://hephaestus-creations-server.vercel.app/reviews')
+            .then(res => res.json())
+            .then(data => {
+                setReviews(data);
+                setArtsLoading(false);
+            })
+    }, [])
+
+    console.log(reviews);
 
     if (artsLoading) {
         return (
@@ -69,6 +87,21 @@ const Home = () => {
             <hr className="border border-dotted border-[#12132D40] my-8" />
             {/* Categories */}
             <Categories categories={categories}></Categories>
+
+            {/* Reviews */}
+            <div className="my-8 md:mt-16">
+                <h3 className="mt-16 mb-4 md:mb-8 text-xl md:text-5xl font-bold md:leading-snug text-center">Testimonials from Our Clients</h3>
+                <p className="">
+                    Discover what others are saying about Hephaestus Creations. Read our customer reviews and testimonials to learn more about their experiences with our artisanal wood engravings.
+                </p>
+                <Marquee pauseOnHover={true}>
+                    <div className="flex">
+                        {
+                            reviews?.map(review => <Review key={review._id} review={review}></Review>)
+                        }
+                    </div>
+                </Marquee>
+            </div>
         </section>
     );
 };
