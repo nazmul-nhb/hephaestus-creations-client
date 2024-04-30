@@ -9,8 +9,8 @@
 
 ### Mentioned NPM Utility Packages Used in this Project
 
-- [react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter)
-- [react-awesome-reveal](https://www.npmjs.com/package/react-awesome-reveal)
+- [react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter) in item card and art category page
+- [react-awesome-reveal](https://www.npmjs.com/package/react-awesome-reveal) in different pages
 - [react-tooltip](https://react-tooltip.com/) on Navbar Profile Picture & Logout Button
 
 ### Other NPM Utility Packages Used in this Project
