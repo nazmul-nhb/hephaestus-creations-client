@@ -11,6 +11,7 @@ import hephaestus from '../../assets/hephaestus.jpeg'
 import hephaestusLandscape from '../../assets/hephaestus-landscape.jpg'
 import Marquee from "react-fast-marquee";
 import Review from "../../components/Review/Review";
+import Partners from "../../components/Partners/Partners";
 
 const Home = () => {
     const [arts, setArts] = useState([]);
@@ -104,6 +105,9 @@ const Home = () => {
                     </div>
                 </Marquee>
             </div>
+
+            {/* Our Partners */}
+            <Partners></Partners>
         </section>
     );
 };

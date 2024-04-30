@@ -1,8 +1,9 @@
 import { FaXTwitter } from "react-icons/fa6";
 import Button from "../Button/Button";
-import { FaFacebookF, FaGithub, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaGithub, FaInstagram, FaMapMarkedAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
 import logo from '../../assets/logo.png'
+import { MdEmail, MdPhone } from "react-icons/md";
 
 const Footer = () => {
 
@@ -30,9 +31,9 @@ const Footer = () => {
                     </form>
                     <div className="flex-1 flex flex-col gap-1 items-center lg:items-end">
                         <h3 className="font-bold">Contact Us</h3>
-                        <h3 className="hover:text-[steelblue] cursor-pointer"><a href="tel:+8801623732187">+8801623732187</a></h3>
-                        <h3 className="hover:text-[steelblue] cursor-pointer"><a href="mailto:nazmulnhb007@yahoo.com">nazmulnhb007@yahoo.com</a></h3>
-                        <h3 className="hover:text-[steelblue] cursor-pointer">67/5, Art Centre, Dhaka-420</h3>
+                        <h3 className="hover:text-[steelblue] cursor-pointer flex items-center gap-1"><MdPhone/><a href="tel:+8801623732187">+8801623732187</a></h3>
+                        <h3 className="hover:text-[steelblue] cursor-pointer flex items-center gap-1"><MdEmail /><a href="mailto:nazmulnhb007@yahoo.com">nazmulnhb007@yahoo.com</a></h3>
+                        <h3 className="hover:text-[steelblue] cursor-pointer flex items-center gap-1"><FaMapMarkedAlt />67/5, Art Centre, Dhaka-420</h3>
                     </div>
                 </div>
                 <hr className="border border-dotted border-[#12132D40] my-8" />
