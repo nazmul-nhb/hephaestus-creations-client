@@ -4,6 +4,8 @@ import loader from '../../assets/loader.svg';
 import { useEffect, useState } from "react";
 import Categories from "../../components/Categories/Categories";
 import { Helmet } from "react-helmet-async";
+import Button from "../../components/Button/Button";
+import { Link } from "react-router-dom";
 
 const Home = () => {
     const [arts, setArts] = useState([]);
@@ -51,11 +53,13 @@ const Home = () => {
                 // data-aos-offset="300"
                 // data-aos-easing="ease-in-sine"
                 // data-aos-duration="3000"
-                className="gap-4 my-2 md:my-4 flex flex-col-reverse xl:flex-row items-center justify-between px-2 md:px-8 py-2 rounded-lg shadow-xl bg-gradient-to-r from-[#77948157] to-[#4c00ffa3]">
-                <div className="flex-1">
-                    This is Home Banner
+                className="gap-4 my-2 md:my-4 flex flex-col xl:flex-row items-center justify-center xl:justify-between p-4 md:px-8 rounded-lg shadow-xl bg-gradient-to-r from-[#77948157] to-[#4c00ffa3]">
+                <Slider className="" arts={arts}></Slider>
+                <div className="flex-1 flex flex-col items-center xl:items-start gap-5 text-center xl:text-left">
+                    <h3 className="text-2xl md:text-5xl font-bold text-white md:leading-snug">Explore the Art of Crafting with Us</h3>
+                    <p className="text-white text-base md:text-lg">Embark on a journey of creativity and imagination with our exquisite collection of artisanal crafts. Explore our curated selection and uncover the beauty that lies within every stroke and detail. Let your home become a canvas for self-expression and artistry. Welcome to a world where creativity knows no bounds.</p>
+                    <Link to={'/all-arts'}><Button color={'#272c50'} buttonText={'Explore All Arts & Crafts'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border !rounded-3xl font-bold text-2xl !px-4'}></Button></Link>
                 </div>
-                <Slider className="flex-1" arts={arts}></Slider>
             </div>
             {/* Our Arts & Crafts */}
             <Arts arts={arts}></Arts>

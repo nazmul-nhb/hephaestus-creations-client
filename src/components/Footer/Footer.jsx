@@ -33,26 +33,25 @@ const Footer = () => {
                 </div>
                 <hr className="border border-dotted border-[#12132D40] my-8" />
                 <div className="flex gap-5 lg:gap-0 flex-col lg:flex-row justify-center items-center lg:justify-between text-center lg:text-left">
-                    <div className="">
+                    <div className="flex-1">
                         <h3 className=""><a href="#">Terms & Conditions</a></h3>
                         <h3 className=""><a href="#">Privacy Policy</a></h3>
                         <h3 className=""><a href="#">Frequently Asked Questions</a></h3>
                     </div>
                     {/* Social Media */}
-                    <div className="flex flex-row gap-8 justify-center text-2xl">
+                    <div className="flex-1 flex flex-row gap-8 justify-center text-2xl">
                         <a href="https://x.com/nhb42" target="_blank" className="hover:text-[midnightblue]">
                             <FaXTwitter></FaXTwitter></a>
                         <a href="https://fb.com/nazmul.batchu" target="_blank" className="hover:text-[#356994]">
                             <FaFacebookF></FaFacebookF></a>
                         <a href="https://www.instagram.com/nazmulbatchu" target="_blank" className="hover:text-[darkred]">
                             <FaInstagram></FaInstagram></a>
-                        <a href="https://github.com/nazmul-nhb/" target="_blank" className="hover:text-[darkgray]">
+                        <a href="https://github.com/nazmul-nhb/" target="_blank" className="hover:text-[#213b50]">
                             <FaGithub></FaGithub></a>
                     </div>
-                    <div className="">
+                    <div className="flex-1 flex flex-col gap-1 items-center lg:items-end">
                         <span className="font-semibold">Hephaestus Creations</span>
-                        <br />
-                        <span className="text-[#19192f]">2024 &copy; All Rights Reserved.</span>
+                        <span className="text-[#41415c]">2024 &copy; All Rights Reserved.</span>
                     </div>
                 </div>
             </div>

@@ -8,22 +8,16 @@ import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 
 // import required modules
-import { Autoplay, Navigation, EffectCube, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCube } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
 const Slider = ({ arts }) => {
     const shuffledArts = [...arts].sort(() => Math.random() - 0.5);
     const randomArts = shuffledArts.slice(0, 4);
 
-    const pagination = { clickable: true, };
-
     return (
         <div className='my-2 md:my-8 w-full lg:w-4/5 xl:w-1/2'>
             <Swiper
-                style={{
-                    '--swiper-navigation-color': 'orange',
-                    '--swiper-pagination-color': 'orange',
-                }}
                 effect={'cube'}
                 grabCursor={true}
                 cubeEffect={{
@@ -38,16 +32,14 @@ const Slider = ({ arts }) => {
                     pauseOnMouseEnter: false,
                     disableOnInteraction: false,
                 }}
-                pagination={pagination}
-                navigation={true}
-                modules={[Autoplay, Navigation, EffectCube, Pagination]}
+                modules={[Autoplay, EffectCube]}
                 className="mySwiper"
             >
                 {
                     randomArts.map(art =>
                         <SwiperSlide key={art._id}>
                             <div className="flex relative">
-                                <img className='w-full lg:w-[480px] rounded-lg lg:rounded-none' src={art.image} alt={art.item_name} />
+                                <img className='w-full xl:w-[480px] rounded-lg lg:rounded-none' src={art.image} alt={art.item_name} />
                                 <div className="bg-gradient-to-r from-[#ffffff90] to-[#ffffff00] absolute top-0 w-4/5 py-1 px-2">
                                     <Link className="bg-transparent font-bold text-xl" to={`/details/${art._id}`}>View Details</Link>
                                 </div>
