@@ -63,7 +63,7 @@ const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
     }
 
     return (
-        <div className='flex flex-col md:flex-row gap-5 border border-[#bbbece41] shadow-md shadow-[#272c5041] p-2 rounded-lg bg-[#bbbece41] hover:scale-105 transition-all duration-500'>
+        <div className='flex flex-col md:flex-row gap-5 border border-[#bbbece41] shadow-md shadow-[#272c5041] p-2 rounded-lg bg-[#bbbece41]'>
             <div className="flex-1">
                 <div className="relative h-full">
                     <img className={"rounded-lg w-full h-full"} src={image} alt={item_name} />

@@ -91,9 +91,9 @@ const Home = () => {
             <Categories categories={categories}></Categories>
 
             {/* Reviews */}
-            <div className="my-8 md:mt-16">
+            <div className="my-8 md:my-16">
                 <h3 className="mt-16 mb-4 md:mb-8 text-xl md:text-5xl font-bold md:leading-snug text-center">Testimonials from Our Clients</h3>
-                <p className="w-[88%] md:w-4/5 text-[#898585] text-base md:text-xl">
+                <p className="w-[88%] mx-auto md:w-4/5 text-[#898585] text-base md:text-xl text-center">
                     Discover what others are saying about Hephaestus Creations. Read our customer reviews and testimonials to learn more about their experiences with our artisanal wood engravings.
                 </p>
                 <Marquee pauseOnHover={true}>

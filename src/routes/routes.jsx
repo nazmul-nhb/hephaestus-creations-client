@@ -5,7 +5,6 @@ import Home from "../pages/Home/Home";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import Contact from "../pages/Contact/Contact";
-import About from "../pages/About/About";
 import AddArts from "../pages/AddArts/AddArts";
 import PrivateRoute from "./PrivateRoute";
 import ArtDetails from "../pages/ArtDetails/ArtDetails";
@@ -61,10 +60,6 @@ export const router = createBrowserRouter([
             {
                 path: '/contact',
                 element: <Contact></Contact>
-            },
-            {
-                path: '/about',
-                element: <About></About>
             },
         ],
     },

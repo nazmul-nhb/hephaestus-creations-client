@@ -90,20 +90,35 @@ const MyArts = () => {
                 <title>My Arts & Crafts - Hephaestus Creations</title>
             </Helmet>
             <div className="flex flex-col justify-center items-center">
-                <h3 className="">My Arts & Crafts ({myArts.length})</h3>
-                <form className="my-8">
-                    <select
-                        onChange={handleFilter}
-                        value={customizationFilter}
-                        className="p-2 rounded-lg text-center outline outline-gray-700"
-                        name="customization" id="customization">
-                        <option value="">Filter by Customization</option>
-                        <option value="true">Customization: Yes</option>
-                        <option value="false">Customization: No</option>
-                        <option value="all">Show All</option>
-                    </select>
-                </form>
+                <h3 className="text-xl md:text-3xl text-[midnightblue] font-semibold">My Arts & Crafts ({myArts.length})</h3>
+                {
+                    myArts.length > 0
+                        ? <form className="my-8">
+                            <select
+                                onChange={handleFilter}
+                                value={customizationFilter}
+                                className="p-2 rounded-lg text-center outline outline-gray-700"
+                                name="customization" id="customization">
+                                <option value="">Filter by Customization</option>
+                                <option value="true">Customization: Yes</option>
+                                <option value="false">Customization: No</option>
+                                <option value="all">Show All</option>
+                            </select>
+                        </form>
+                        : <div
+                            data-aos="fade-up"
+                            data-aos-offset="300"
+                            data-aos-easing="ease-in-sine"
+                            data-aos-duration="1000"
+                            data-aos-delay="500"
+                            className="h-[67vh] flex items-center justify-center">
+                            <h4 className="border shadow-lg shadow-red-800 border-red-600 p-6 text-lg md:text-3xl font-bold text-red-600 bg-red-100">You have Added Nothing! </h4>
+                        </div>
+                }
             </div>
+            {/* {
+                myArts.length < 1 && 
+            } */}
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {
                     myArts?.map(art => <Art

@@ -7,7 +7,7 @@ import { TbEdit, TbEditOff } from "react-icons/tb";
 import { FaStar, FaUserEdit } from "react-icons/fa";
 import { IoMdPricetags } from "react-icons/io";
 import { PiTimerBold } from "react-icons/pi";
-import { MdAlternateEmail, MdDescription, MdRateReview } from "react-icons/md";
+import { MdDescription, MdEmail, MdRateReview } from "react-icons/md";
 import { GiColombianStatue, GiStockpiles } from "react-icons/gi";
 import { BiSolidCategory } from "react-icons/bi";
 
@@ -59,7 +59,7 @@ const ArtDetails = () => {
                     <legend className="text-[#5648969d] rounded-2xl font-medium border border-[#5648969d] bg-[#3f36660f] px-2">Item Added by</legend>
                     <div className="flex flex-col md:flex-row justify-between">
                         <h3 className="flex gap-1 items-center "><FaUserEdit />{user_name}</h3>
-                        <h3 className="flex gap-1 items-center "><MdAlternateEmail />{user_email}</h3>
+                        <h3 className="flex gap-1 items-center "><MdEmail />{user_email}</h3>
                     </div>
                 </fieldset>
             </div>
