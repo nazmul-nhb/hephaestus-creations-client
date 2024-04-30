@@ -22,7 +22,7 @@ const Footer = () => {
             <div className="px-6 py-8 md:py-12 md:px-20">
                 <div className="flex gap-4 lg:gap-0 flex-col lg:flex-row justify-center lg:items-center lg:justify-between">
                     <div className="flex-1 flex flex-col lg:gap-3 text-center lg:text-left">
-                        <h3 className="text-base md:text-2xl font-semibold"><span className="text-[#16a34a]">Hephaestus</span> <span className="text-[#ea580c]">Creations</span></h3>
+                        <h3 className="text-base md:text-2xl font-semibold text-[midnightblue]">Hephaestus Creations</h3>
                         <h6 className="text-[9px] md:text-sm text-[#ea0c0c]">Where Art Comes to Life</h6>
                     </div>
                     <form onSubmit={handleNewsletter} className="flex-1 flex flex-col text-center gap-2 px-8 lg:px-0">
@@ -39,9 +39,9 @@ const Footer = () => {
                 <hr className="border border-dotted border-[#12132D40] my-8" />
                 <div className="flex gap-5 lg:gap-0 flex-col lg:flex-row justify-center items-center lg:justify-between text-center lg:text-left">
                     <div className="flex-1">
-                        <h3 className=""><a href="#">Terms & Conditions</a></h3>
-                        <h3 className=""><a href="#">Privacy Policy</a></h3>
-                        <h3 className=""><a href="#">Frequently Asked Questions</a></h3>
+                        <h3 className="text-[slateblue]"><a href="#">Terms & Conditions</a></h3>
+                        <h3 className="text-[slateblue]"><a href="#">Privacy Policy</a></h3>
+                        <h3 className="text-[slateblue]"><a href="#">Frequently Asked Questions</a></h3>
                     </div>
                     {/* Social Media */}
                     <div className="flex-1 flex flex-row gap-8 justify-center text-2xl">

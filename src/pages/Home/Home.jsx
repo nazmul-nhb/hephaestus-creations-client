@@ -88,6 +88,8 @@ const Home = () => {
 
             {/* Categories */}
             <Categories categories={categories}></Categories>
+            
+            <hr className="border border-dotted border-[#12132D40] my-8" />
 
             {/* Reviews */}
             <div className="my-8 md:my-16">
@@ -103,6 +105,8 @@ const Home = () => {
                     </div>
                 </Marquee>
             </div>
+
+            <hr className="border border-dotted border-[#12132D40] my-8" />
 
             {/* Our Partners */}
             <Partners></Partners>

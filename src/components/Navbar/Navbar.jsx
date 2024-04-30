@@ -77,12 +77,13 @@ const Navbar = () => {
                 }
             </div>
             <div className="flex justify-between items-center w-full">
-                    <div className="flex items-center gap-1" title="ArtisanAxis Realty">
+                <div className="flex items-center gap-1" title="ArtisanAxis Realty">
+                    <Link to="/">
                         <div className="flex flex-col">
-                            <h3 className="text-xs md:text-2xl font-semibold"><span className="text-[#16a34a]">Hephaestus</span> <span className="text-[#ea580c]">Creations</span></h3>
+                            <h3 className="text-xs md:text-2xl font-semibold text-[midnightblue]">Hephaestus Creations</h3>
                             <h6 className="text-[9px] md:text-sm text-[#ea0c0c]">Where Art Comes to Life</h6>
-                        </div>
-                    </div>
+                        </div></Link>
+                </div>
                 <div className="text-sm xl:text-base">
                     <ul className={`w-1/2 min-[1170px]:w-full flex flex-col min-[1170px]:flex-row justify-start min-[1170px]:justify-center gap-2 font-medium duration-500 absolute min-[1170px]:static shadow-lg shadow-slate-700 min-[1170px]:shadow-none h-screen min-[1170px]:h-auto p-4 min-[1170px]:p-0 ${open ? 'left-0 top-[60px] md:top-20 bg-gradient-to-r from-[#d3d7d5ed] to-[#e9e4e4f8] bg-opacity-100 flex z-10' : '-left-full top-[60px] md:top-20'}`}>
                         {navLinks}
