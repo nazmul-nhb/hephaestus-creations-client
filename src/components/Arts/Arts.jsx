@@ -9,10 +9,11 @@ const Arts = ({ arts }) => {
 
 
     return (
-        <section className="space-y-6">
-            <h3 className="">Our Arts & Crafts</h3>
-            <p className=""><span className="">Hephaestus Creations</span> offers a diverse selection of meticulously crafted sculptures and artworks, each imbued with intricate details and artistic flair. From captivating clay sculptures to elegant stone carvings, our collection showcases the talent and creativity of skilled artisans, making it easy for enthusiasts and collectors alike to find unique pieces that inspire and delight.</p>
-
+        <section className="space-y-6 my-8 md:my-16">
+            <div className="my-8 md:my-16 flex flex-col gap-3 md:gap-6 justify-center items-center pr-4 text-center mx-auto">
+                <h3 className="text-xl md:text-5xl font-bold md:leading-snug">Our Arts & Crafts</h3>
+                <p className="w-[88%] md:w-4/5 text-[#898585] text-base md:text-xl"><span className="italic">Hephaestus Creations</span> offers a diverse selection of meticulously crafted sculptures and artworks, each imbued with intricate details and artistic flair. From captivating clay sculptures to elegant stone carvings, our collection showcases the talent and creativity of skilled artisans, making it easy for enthusiasts and collectors alike to find unique pieces that inspire and delight.</p>
+            </div>
             {/* Cards */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {

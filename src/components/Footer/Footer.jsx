@@ -22,7 +22,7 @@ const Footer = () => {
                     </div>
                     <form onSubmit={handleNewsletter} className="flex-1 flex flex-col text-center gap-2 px-8 lg:px-0">
                         <input required className="p-2 rounded-3xl bg-[#40457a37] border" type="email" name="email" id="email" />
-                        <Button buttonType={'submit'} color={'#272c50'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border !rounded-3xl font-bold text-xl !px-4'} buttonText={"Subscribe to Newsletter"}></Button>
+                        <Button buttonType={'submit'} color={'#272c50'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border !rounded-3xl font-bold md:text-xl !px-4'} buttonText={"Subscribe to Newsletter"}></Button>
                     </form>
                     <div className="flex-1 flex flex-col gap-1 items-center lg:items-end">
                         <h3 className="">Contact Us</h3>

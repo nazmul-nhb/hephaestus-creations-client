@@ -16,7 +16,7 @@ const Slider = ({ arts }) => {
     const randomArts = shuffledArts.slice(0, 4);
 
     return (
-        <div className='my-2 md:my-8 w-full lg:w-4/5 xl:w-1/2'>
+        <div className='my-8 w-full lg:w-4/5 xl:w-1/2'>
             <Swiper
                 effect={'cube'}
                 grabCursor={true}
