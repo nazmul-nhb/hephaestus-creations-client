@@ -27,5 +27,5 @@ nav ul a {
 
 a.active > button {
     background-color: transparent !important;
-    color: teal !important;
+    color: #272c50 !important;
 }

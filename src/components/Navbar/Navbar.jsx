@@ -54,7 +54,6 @@ const Navbar = () => {
             </>
         }
         <NavLink to={'/contact'}>Contact</NavLink>
-        <NavLink to={'/about'}>About</NavLink>
     </>
 
     const handleLogout = () => {
@@ -69,8 +68,8 @@ const Navbar = () => {
 
 
     return (
-        <nav className="flex items-center gap-0 md:gap-4 mx-0 shadow-md px-2 py-3 md:px-[5.4%] sticky top-0 bg-gradient-to-r from-[#d3d7d5ed] to-[#e9e4e4f8] bg-opacity-100 z-20">
-            <div className="lg:hidden text-4xl md:text-5xl cursor-pointer" onClick={() => setOpen(!open)}>
+        <nav className="max-w-[1920px] flex items-center gap-0 md:gap-4 mx-auto shadow-md px-2 py-3 md:px-20 sticky top-0 bg-gradient-to-r from-[#d3d7d5ed] to-[#e9e4e4f8] bg-opacity-100 z-20">
+            <div className="min-[1170px]:hidden text-3xl md:text-5xl cursor-pointer" onClick={() => setOpen(!open)}>
                 {
                     open
                         ? <MdOutlineClose className="text-[#e85800] hover:text-[#236d3e] transform transition-all duration-1000"></MdOutlineClose>
@@ -78,16 +77,14 @@ const Navbar = () => {
                 }
             </div>
             <div className="flex justify-between items-center w-full">
-                <Link to='/'>
                     <div className="flex items-center gap-1" title="ArtisanAxis Realty">
                         <div className="flex flex-col">
-                            <h3 className="text-base md:text-2xl font-semibold"><span className="text-[#16a34a]">Hephaestus</span> <span className="text-[#ea580c]">Creations</span></h3>
+                            <h3 className="text-sm md:text-2xl font-semibold"><span className="text-[#16a34a]">Hephaestus</span> <span className="text-[#ea580c]">Creations</span></h3>
                             <h6 className="text-[9px] md:text-sm text-[#ea0c0c]">Where Art Comes to Life</h6>
                         </div>
                     </div>
-                </Link>
                 <div className="text-sm xl:text-base">
-                    <ul className={`w-1/2 lg:w-full flex flex-col lg:flex-row justify-start lg:justify-center gap-2 font-medium duration-500 absolute lg:static shadow-lg shadow-slate-700 lg:shadow-none h-screen lg:h-auto p-4 lg:p-0 ${open ? 'left-0 top-16 md:top-20 bg-gradient-to-r from-[#d3d7d5ed] to-[#e9e4e4f8] bg-opacity-100 flex z-10' : '-left-full top-16 md:top-20'}`}>
+                    <ul className={`w-1/2 min-[1170px]:w-full flex flex-col min-[1170px]:flex-row justify-start min-[1170px]:justify-center gap-2 font-medium duration-500 absolute min-[1170px]:static shadow-lg shadow-slate-700 min-[1170px]:shadow-none h-screen min-[1170px]:h-auto p-4 min-[1170px]:p-0 ${open ? 'left-0 top-16 md:top-20 bg-gradient-to-r from-[#d3d7d5ed] to-[#e9e4e4f8] bg-opacity-100 flex z-10' : '-left-full top-16 md:top-20'}`}>
                         {navLinks}
                     </ul>
                 </div>
@@ -99,10 +96,10 @@ const Navbar = () => {
                     <input onChange={handleThemToggle} type="checkbox" className="theme-controller" />
 
                     {/* sun icon */}
-                    <svg className="swap-off toggleTheme fill-current w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" /></svg>
+                    <svg className="swap-off toggleTheme fill-current w-7 md:w-10 h-7 md:h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" /></svg>
 
                     {/* moon icon */}
-                    <svg className="swap-on toggleTheme fill-current w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" /></svg>
+                    <svg className="swap-on toggleTheme fill-current w-7 md:w-10 h-7 md:h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" /></svg>
                 </label>
                 {
                     user
@@ -118,9 +115,10 @@ const Navbar = () => {
                                 <IoMdLogOut />
                             </div>
                         </div>
-                        : <div className="flex items-center gap-2 md:gap-3">
-                            <NavLink to={'/login'}><Button className="border text-sm md:text-xl xl:text-2xl font-bold" buttonText={"Login"} color={"teal"} hoverColor={"white"} hoverBgColor={"transparent"}></Button></NavLink>
-                            <NavLink to={'/register'}><Button className="border text-sm md:text-xl xl:text-2xl font-bold" buttonText={"Register"} color={"teal"} hoverColor={"white"} hoverBgColor={"transparent"}></Button></NavLink>
+                        // overBgColor={'transparent'} hoverColor={'white'} className={'border !rounded-3xl font-bold text-xl !px-4'}
+                        : <div className="flex items-center gap-1 md:gap-3">
+                            <NavLink to={'/login'}><Button className="border text-sm md:text-xl xl:text-2xl !rounded-3xl !px-2 mg:!px-4 font-bold" buttonText={"Login"} color={"#272c50"} hoverColor={"white"} hoverBgColor={"transparent"}></Button></NavLink>
+                            <NavLink to={'/register'}><Button className="border text-sm md:text-xl xl:text-2xl !rounded-3xl !px-2 mg:!px-4 font-bold" buttonText={"Register"} color={"#272c50"} hoverColor={"white"} hoverBgColor={"transparent"}></Button></NavLink>
                         </div>
                 }
             </div>

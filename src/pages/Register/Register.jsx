@@ -8,6 +8,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { Helmet } from 'react-helmet-async';
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -17,9 +18,7 @@ const Register = () => {
 
     const handleRegister = data => {
         const { name, photo, email, password } = data;
-        if (errors.password) {
-            toast.error(errors.password.message);
-        }
+
         createUser(email, password)
             .then(result => {
                 // update profile
@@ -29,15 +28,33 @@ const Register = () => {
                 })
                     .then(() => { })
                     .catch(error => {
-                        toast.error(error.message.split(': ')[1]);
+                        Swal.fire({
+                            title: 'Error!',
+                            text: error.message.split(': ')[1] || error.message,
+                            icon: 'error',
+                            confirmButtonText: 'Close'
+                        });
                     })
-                toast.success("Registration Successful! Please, Login Now!");
+                toast.success("Registration Successful! Please, Login Now!", { autoClose: 2500 });
                 logOut();
                 navigate('/login');
             })
             .catch(error => {
-                if (error.message.split(': ')[1] === "Error (auth/email-already-in-use).") {
-                    toast.error(`Registration Failed! Your Email is Already Registered!`);
+                if (error.message === "Firebase: Error (auth/email-already-in-use).") {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: "Registration Failed! Your Email is Already Registered!",
+                        icon: 'warning',
+                        confirmButtonText: 'Close'
+                    });
+                } else {
+
+                    Swal.fire({
+                        title: 'Error!',
+                        text: error.message.split(': ')[1] || error.message,
+                        icon: 'error',
+                        confirmButtonText: 'Close'
+                    });
                 }
             })
     }
@@ -45,33 +62,78 @@ const Register = () => {
     const handleGoogleLogin = () => {
         googleLogin()
             .then(() => {
-                toast.success("Successfully Logged in!");
+                toast.success("Successfully Logged in!", { autoClose: 2500 });
                 navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
-                toast.error(error.message.split(': ')[1]);
+                if (error.message === "Firebase: Error (auth/popup-closed-by-user).") {
+                    Swal.fire({
+                        title: 'Alert!',
+                        text: "Popup Closed by User!",
+                        icon: 'warning',
+                        confirmButtonText: 'Close'
+                    });
+                } else {
+
+                    Swal.fire({
+                        title: 'Error!',
+                        text: error.message.split(': ')[1] || error.message,
+                        icon: 'error',
+                        confirmButtonText: 'Close'
+                    });
+                }
             })
     }
 
     const handleFacebookLogin = () => {
         facebookLogin()
             .then(() => {
-                toast.success("Successfully Logged in!");
+                toast.success("Successfully Logged in!", { autoClose: 2500 });
                 navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
-                toast.error(error.message.split(': ')[1]);
+                if (error.message === "Firebase: Error (auth/popup-closed-by-user).") {
+                    Swal.fire({
+                        title: 'Alert!',
+                        text: "Popup Closed by User!",
+                        icon: 'warning',
+                        confirmButtonText: 'Close'
+                    });
+                } else {
+
+                    Swal.fire({
+                        title: 'Error!',
+                        text: error.message.split(': ')[1] || error.message,
+                        icon: 'error',
+                        confirmButtonText: 'Close'
+                    });
+                }
             })
     }
 
     const handleGithubLogin = () => {
         githubLogin()
             .then(() => {
-                toast.success("Successfully Logged in!");
+                toast.success("Successfully Logged in!", { autoClose: 2500 });
                 navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
-                toast.error(error.message.split(': ')[1]);
+                if (error.message === "Firebase: Error (auth/popup-closed-by-user).") {
+                    Swal.fire({
+                        title: 'Alert!',
+                        text: "Popup Closed by User!",
+                        icon: 'warning',
+                        confirmButtonText: 'Close'
+                    });
+                } else {
+
+                    Swal.fire({
+                        title: 'Error!',
+                        text: error.message.split(': ')[1] || error.message,
+                        icon: 'error',
+                        confirmButtonText: 'Close'
+                    });
+                }
             })
     }
 

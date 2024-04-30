@@ -24,7 +24,7 @@ const ArtDetails = () => {
                 <title>{item_name} - Hephaestus Creations</title>
             </Helmet>
 
-            <div className="flex-1 flex flex-col gap-5">
+            <div className="flex-1 flex flex-col gap-5 mt-4 px-6 lg:px-0">
                 <h3 className="text-xl md:text-3xl font-bold">{item_name}</h3>
                 <h3 className=""><span className="font-semibold">Subcategory: </span>{subcategory_name}</h3>
                 <div className="">
@@ -32,14 +32,18 @@ const ArtDetails = () => {
                     <p className="">{short_description}</p>
                 </div>
                 <div className="flex justify-between items-center">
-                    <h3 className=""><span className="font-semibold">Rating: </span>${price}</h3>
-                    <h3 className=""><span className="font-semibold">Price: </span>{rating}</h3>
+                    <h3 className=""><span className="font-semibold">Price: </span>${price}</h3>
+                    <h3 className=""><span className="font-semibold">Rating: </span>{rating}</h3>
                 </div>
                 <div className="flex flex-col md:flex-row justify-between md:items-center items-start">
                     <h3 className=""><span className="font-semibold">Customizable: </span>{customization ? "Yes" : "No"}</h3>
                     <h3 className=""><span className="font-semibold">Processing Time: </span>{processing_time}</h3>
                 </div>
-                <div className="flex flex-col-reverse md:flex-row justify-between">
+                <div className="flex justify-between items-center">
+                    <h3><span>Stock Status: </span>{stock_status}</h3>
+                    <Button onClick={showSuccess} color={'#272c50'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border !rounded-3xl font-bold text-xl !px-4'} buttonText={"Order Now"}></Button>
+                </div>
+                <div className="flex flex-col md:flex-row justify-between">
                     <h3 className="font-semibold">Item Added by:</h3>
                     <div className="md:text-right">
                         <h3 className="">{user_name}</h3>
@@ -50,11 +54,7 @@ const ArtDetails = () => {
             <div className="flex-1 flex flex-col gap-4">
                 <figure className="p-6 border">
                     <img className="hover:scale-105 transition-all opacity-95 duration-500 hover:opacity-100" src={image} alt={item_name} />
-                    </figure>
-                <div className="flex justify-around items-center">
-                    <h3><span>Stock Status: </span>{stock_status}</h3>
-                    <Button onClick={showSuccess} color={'#272c50'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border !rounded-3xl font-bold text-xl !px-4'} buttonText={"Order Now"}></Button>
-                </div>
+                </figure>
             </div>
         </section>
     );

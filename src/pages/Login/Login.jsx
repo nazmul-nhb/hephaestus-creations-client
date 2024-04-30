@@ -19,7 +19,7 @@ const Login = () => {
         const { email, password } = data;
         userLogin(email, password)
             .then(() => {
-                toast.success("Successfully Logged in!");
+                toast.success("Successfully Logged in!", { autoClose: 2500 });
                 navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
@@ -30,9 +30,7 @@ const Login = () => {
                         icon: 'error',
                         confirmButtonText: 'Close'
                     });
-                    // toast.error("Email & Password Did Not Match!");
                 } else {
-                    // toast.error(error.message);
                     Swal.fire({
                         title: 'Error!',
                         text: error.message,
@@ -46,11 +44,10 @@ const Login = () => {
     const handleGoogleLogin = () => {
         googleLogin()
             .then(() => {
-                toast.success("Successfully Logged in!");
+                toast.success("Successfully Logged in!", { autoClose: 2500 });
                 navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
-                // toast.error(error.message.split(': ')[1]);
                 if (error.message === "Firebase: Error (auth/popup-closed-by-user).") {
                     Swal.fire({
                         title: 'Alert!',
@@ -62,7 +59,7 @@ const Login = () => {
 
                     Swal.fire({
                         title: 'Error!',
-                        text: error.message,
+                        text: error.message.split(': ')[1] || error.message,
                         icon: 'error',
                         confirmButtonText: 'Close'
                     });
@@ -73,11 +70,10 @@ const Login = () => {
     const handleFacebookLogin = () => {
         facebookLogin()
             .then(() => {
-                toast.success("Successfully Logged in!");
+                toast.success("Successfully Logged in!", { autoClose: 2500 });
                 navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
-                // toast.error(error.message.split(': ')[1]);
                 if (error.message === "Firebase: Error (auth/popup-closed-by-user).") {
                     Swal.fire({
                         title: 'Alert!',
@@ -89,7 +85,7 @@ const Login = () => {
 
                     Swal.fire({
                         title: 'Error!',
-                        text: error.message,
+                        text: error.message.split(': ')[1] || error.message,
                         icon: 'error',
                         confirmButtonText: 'Close'
                     });
@@ -100,11 +96,10 @@ const Login = () => {
     const handleGithubLogin = () => {
         githubLogin()
             .then(() => {
-                toast.success("Successfully Logged in!");
+                toast.success("Successfully Logged in!", { autoClose: 2500 });
                 navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
-                // toast.error(error.message.split(': ')[1]);
                 if (error.message === "Firebase: Error (auth/popup-closed-by-user).") {
                     Swal.fire({
                         title: 'Alert!',
@@ -116,7 +111,7 @@ const Login = () => {
 
                     Swal.fire({
                         title: 'Error!',
-                        text: error.message,
+                        text: error.message.split(': ')[1] || error.message,
                         icon: 'error',
                         confirmButtonText: 'Close'
                     });
