@@ -31,7 +31,7 @@ const AllArts = () => {
             <Helmet>
                 <title>All Arts & Crafts List - Hephaestus Creations</title>
             </Helmet>
-            <h2 className="mb-4 text-2xl font-semibold leading-tight">All Art & Craft Items</h2>
+            <h2 className="text-center mb-4 text-2xl font-semibold leading-tight">All Art & Craft Items</h2>
             <div className="container overflow-x-auto">
                 <table className="table text-xs md:text-sm">
                     <thead className=" text-sm md:text-base">
@@ -70,7 +70,6 @@ const AllArts = () => {
                             </tbody>
                         )
                     }
-
                 </table>
             </div>
         </section>
