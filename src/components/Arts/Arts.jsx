@@ -15,7 +15,7 @@ const Arts = ({ arts }) => {
                 <p className="w-[88%] md:w-4/5 text-[#898585] text-base md:text-xl"><span className="italic">Hephaestus Creations</span> offers a diverse selection of meticulously crafted sculptures and artworks, each imbued with intricate details and artistic flair. From captivating clay sculptures to elegant stone carvings, our collection showcases the talent and creativity of skilled artisans, making it easy for enthusiasts and collectors alike to find unique pieces that inspire and delight.</p>
             </div>
             {/* Cards */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {
                     arts?.slice(0, artsLength).map(art => <Art
                         key={art._id}

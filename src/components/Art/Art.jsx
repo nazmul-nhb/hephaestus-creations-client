@@ -96,7 +96,7 @@ const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
             {/* Update Modal */}
             {
                 showModal && (
-                    <dialog open className="w-full lg:w-4/5 h-3/4 bg-white bg-opacity-95 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg rounded-lg z-20 overflow-y-auto">
+                    <dialog open className="w-full xl:w-auto h-full bg-white bg-opacity-95 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg z-20 overflow-y-auto">
                         <UpdateArt
                             polishedArt={polishedArt}
                             handleUpdate={handleUpdate}
