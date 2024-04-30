@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Art from "../../components/Art/Art";
 import loader from '../../assets/loader.svg';
 import { Cursor, useTypewriter } from "react-simple-typewriter";
+import { Helmet } from "react-helmet-async";
 
 const CategoryDetails = () => {
     const [arts, setArts] = useState([])
@@ -35,8 +36,13 @@ const CategoryDetails = () => {
 
     return (
         <section className="mx-2 md:mx-8 my-2 md:my-8 p-2 md:px-4">
+            <Helmet>
+                <title>
+                    {category.category_name} - Hephaestus Creations
+                </title>
+            </Helmet>
             <div className="flex flex-col gap-4 items-center mb-8">
-                <h3 className="text-xl md:text-3xl font-bold"><span>Category:</span> {cName} <Cursor cursorColor='red' /></h3>
+                <h3 className="text-xl md:text-3xl font-semibold"><span className="font-bold">Category: </span>{cName} <Cursor cursorColor='red' /></h3>
                 <h3 className="text-lg md:text-2xl font-semibold">Total Items: {arts.length}</h3>
                 <p className="w-[88%] text-center text-[midnightblue]">{category.description}</p>
             </div>

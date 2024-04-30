@@ -6,10 +6,14 @@ import { FaStar } from 'react-icons/fa';
 import { RiDeleteBin6Line, RiFileEditFill } from 'react-icons/ri';
 import { useState } from 'react';
 import UpdateArt from '../UpdateArt/UpdateArt';
-import { IoIosCloseCircle } from 'react-icons/io';
+import { IoIosCloseCircle, IoMdPricetags } from 'react-icons/io';
 import Swal from 'sweetalert2';
 import loader from '../../assets/loader.svg';
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
+import { GiStockpiles } from 'react-icons/gi';
+import { BiSolidCategory } from 'react-icons/bi';
+import { PiTimerBold } from 'react-icons/pi';
+import { MdDescription } from 'react-icons/md';
 
 const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
     const [polishedArt, setPolishedArt] = useState(art);
@@ -64,20 +68,22 @@ const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
                 <div className="relative h-full">
                     <img className={"rounded-lg w-full h-full"} src={image} alt={item_name} />
                     {
-                        fromCategory && <h3 className={`w-full flex items-center justify-center gap-1 bg-opacity-80 absolute top-0 px-1 rounded-t-lg text-sm text-center font-medium text-white border ${customization ? 'border-[#16a34a] bg-[#16a34a]' : 'border-[#ea580c] bg-[#ea580c]'}`}>{subcategory_name}</h3>
+                        fromCategory && <h3 className={`w-full flex items-center justify-center gap-1 bg-opacity-80 absolute top-0 px-1 rounded-t-lg text-sm text-center font-medium text-white border ${customization ? 'border-[#16a34a] bg-[#16a34a]' : 'border-[#ea580c] bg-[#ea580c]'}`}><BiSolidCategory />{subcategory_name}</h3>
                     }
                     <h3 className={`w-full flex items-center justify-center gap-1 bg-opacity-80 absolute bottom-0 px-1 rounded-b-lg text-sm text-center font-semibold text-white border ${customization ? 'border-[#16a34a] bg-[#16a34a]' : 'border-[#ea580c] bg-[#ea580c]'}`}><span>Rating: </span>{rating} <FaStar /></h3>
                 </div>
             </div>
             <div className="flex-1 flex flex-col justify-between gap-2 text-gray-900 !text-[110%] md:!text-[100%]">
-                <h3 className={`font-semibold ${customization ? 'text-[slateblue]' : 'text-[steelblue]'}`}>{item_name}</h3>
-                <h3 className={`flex-grow font-bold ${customization ? 'text-[green]' : 'text-[red]'}`}><span className='font-bold'>Price: </span>${text} <Cursor cursorColor='red' /></h3>
-                <h4 className={`flex-grow text-sm font-medium ${stock_status === 'In Stock' ? 'text-[green]' : 'text-[red]'}`}><span className='font-semibold'>Stock: </span>{stock_status}</h4>
-                <h4 className={`flex-grow flex items-center gap-1 text-sm font-medium ${customization ? 'text-[green]' : 'text-[red]'}`}><span className='flex items-center gap-1'>{customization ? <TbEdit /> : <TbEditOff />} <span className="font-semibold">Customization: </span></span>{customization ? "Yes" : "No"}</h4>
+                <Link className='hover:opacity-90' to={`/details/${_id}`}>
+                    <h3 className={`font-semibold ${customization ? 'text-[slateblue] hover:text-[darkred]' : 'text-[steelblue] hover:text-[darkred]'}`}>{item_name}</h3>
+                </Link>
+                <h3 className={`flex gap-1 items-center flex-grow font-medium ${customization ? 'text-[midnightblue]' : 'text-[darkred]'}`}><IoMdPricetags /><span className='font-semibold'>Price: </span>${text} <Cursor cursorColor='red' /></h3>
+                <h4 className={`flex gap-1 items-center flex-grow text-sm font-medium ${stock_status === 'In Stock' ? 'text-[midnightblue]' : 'text-[darkred]'}`}><GiStockpiles /><span className='font-semibold'>Stock: </span>{stock_status}</h4>
+                <h4 className={`flex-grow flex items-center gap-1 text-sm font-medium ${customization ? 'text-[midnightblue]' : 'text-[darkred]'}`}><span className='flex items-center gap-1'>{customization ? <TbEdit /> : <TbEditOff />} <span className="font-semibold">Customization: </span></span>{customization ? "Yes" : "No"}</h4>
                 {
                     fromCategory && <div className="flex-1 flex flex-col justify-between gap-2">
-                        <h4 className="flex-grow "><span className='font-semibold'>Processing Time: </span>{processing_time}</h4>
-                        <h4 className="flex-grow "><span className='font-semibold'>Short Description: </span>{short_description.slice(0, 64)}...</h4>
+                        <h4 className="flex-grow flex-1 flex gap-1 items-center text-[#1d1d49]"><PiTimerBold /><span className='font-semibold'>Processing Time: </span>{processing_time}</h4>
+                        <h4 className="flex-grow flex-1 flex flex-col text-[#20204db9]"><span className='flex gap-1 items-center font-semibold'><MdDescription />Short Description: </span>{short_description.slice(0, 64)}...</h4>
                     </div>
                 }
 
