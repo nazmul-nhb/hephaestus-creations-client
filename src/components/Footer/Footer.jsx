@@ -2,6 +2,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import Button from "../Button/Button";
 import { FaFacebookF, FaGithub, FaInstagram } from "react-icons/fa";
 import { toast } from "react-toastify";
+import logo from '../../assets/logo.png'
 
 const Footer = () => {
 
@@ -14,6 +15,9 @@ const Footer = () => {
 
     return (
         <footer className="max-w-[1920px] mx-auto bg-[#343b4051]">
+            <figure className="w-full block">
+                <img className="mx-auto pt-8" src={logo} alt="logo" />
+            </figure>
             <div className="px-6 py-8 md:py-12 md:px-20">
                 <div className="flex gap-4 lg:gap-0 flex-col lg:flex-row justify-center lg:items-center lg:justify-between">
                     <div className="flex-1 flex flex-col lg:gap-3 text-center lg:text-left">
