@@ -4,10 +4,10 @@ import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import { Zoom } from "react-awesome-reveal";
 import { TbEdit, TbEditOff } from "react-icons/tb";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaUserEdit } from "react-icons/fa";
 import { IoMdPricetags } from "react-icons/io";
 import { PiTimerBold } from "react-icons/pi";
-import { MdDescription, MdRateReview } from "react-icons/md";
+import { MdAlternateEmail, MdDescription, MdRateReview } from "react-icons/md";
 import { GiColombianStatue, GiStockpiles } from "react-icons/gi";
 import { BiSolidCategory } from "react-icons/bi";
 
@@ -58,8 +58,8 @@ const ArtDetails = () => {
                 <fieldset className="text-[#415860] border border-solid border-[#415860] rounded-lg pt-1 pb-3 px-3">
                     <legend className="text-[#5648969d] rounded-2xl font-medium border border-[#5648969d] bg-[#3f36660f] px-2">Item Added by</legend>
                     <div className="flex flex-col md:flex-row justify-between">
-                        <h3 className="">{user_name}</h3>
-                        <h3 className="">{user_email}</h3>
+                        <h3 className="flex gap-1 items-center "><FaUserEdit />{user_name}</h3>
+                        <h3 className="flex gap-1 items-center "><MdAlternateEmail />{user_email}</h3>
                     </div>
                 </fieldset>
             </div>

@@ -82,16 +82,18 @@ const Home = () => {
                 </div>
             </Slide>
             <hr className="border border-dotted border-[#12132D40] my-8" />
+
             {/* Our Arts & Crafts */}
             <Arts arts={arts}></Arts>
             <hr className="border border-dotted border-[#12132D40] my-8" />
+
             {/* Categories */}
             <Categories categories={categories}></Categories>
 
             {/* Reviews */}
             <div className="my-8 md:mt-16">
                 <h3 className="mt-16 mb-4 md:mb-8 text-xl md:text-5xl font-bold md:leading-snug text-center">Testimonials from Our Clients</h3>
-                <p className="">
+                <p className="w-[88%] md:w-4/5 text-[#898585] text-base md:text-xl">
                     Discover what others are saying about Hephaestus Creations. Read our customer reviews and testimonials to learn more about their experiences with our artisanal wood engravings.
                 </p>
                 <Marquee pauseOnHover={true}>

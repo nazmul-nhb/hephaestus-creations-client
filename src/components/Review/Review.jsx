@@ -18,7 +18,7 @@ const Review = ({ review }) => {
         <div className='w-[320px] flex flex-col gap-3 border border-gray-500 rounded-lg px-4 py-3 bg-gray-100 shadow-md shadow-gray-800 mx-4 my-6'>
             <div className="flex gap-6 items-center">
                 <img src={client_image} alt={client_name} title={client_name} className="w-12 rounded-full border border-gray-900 p-[2px]" />
-                <div className="">
+                <div className="text-[steelblue]">
                     <h3 className="text-lg font-medium">{client_name}</h3>
                     <h5 className="text-gray-500">{review_date}</h5>
                 </div>

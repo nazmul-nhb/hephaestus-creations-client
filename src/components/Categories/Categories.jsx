@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import Category from '../Category/Category';
-import Marquee from 'react-fast-marquee';
 
 const Categories = ({ categories }) => {
     return (
@@ -9,8 +8,7 @@ const Categories = ({ categories }) => {
                 <h3 className='text-xl md:text-5xl font-bold md:leading-snug'>Art & Craft Categories</h3>
                 <p className='w-[88%] md:w-4/5 text-[#898585] text-base md:text-xl'>From the timeless elegance of Stone Sculpture to the vibrant intricacies of Beaded Sculpture, each subcategory offers a unique artistic journey. Explore and let these diverse subcategories spark your creativity and elevate your artistic endeavors to new heights.</p>
             </div>
-            <Marquee pauseOnHover={true}>
-                <div className="flex">
+                <div className="grid md:grid-cols-3 gap-6">
                     {
                         categories.map(category => <Category
                             key={category._id}
@@ -18,7 +16,6 @@ const Categories = ({ categories }) => {
                         ></Category>)
                     }
                 </div>
-            </Marquee>
         </section>
     );
 };
