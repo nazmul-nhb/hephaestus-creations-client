@@ -52,8 +52,6 @@ const Home = () => {
             })
     }, [])
 
-    console.log(reviews);
-
     if (artsLoading) {
         return (
             <div className="flex items-center justify-center space-x-2">
