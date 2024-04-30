@@ -52,16 +52,16 @@ const Home = () => {
 
             {/* Banner */}
             <Slide duration={2000}>
-            <div className="gap-4 my-2 md:my-4 flex flex-col xl:flex-row items-center justify-center xl:justify-between p-4 md:px-8 rounded-lg shadow-xl bg-gradient-to-r from-[#65a48c57] to-[#5c419ca3] mb-8 md:mb-20">
+                <div className="gap-4 my-2 md:my-4 flex flex-col-reverse xl:flex-row items-center justify-center xl:justify-between p-4 md:px-8 rounded-lg shadow-xl bg-gradient-to-r from-[#65a48c57] to-[#5c419ca3] mb-8 md:mb-20">
                     <img className="hidden xl:block absolute top-0 left-0 -z-30 w-full h-full rounded-lg opacity-20" src={hephaestusLandscape} alt="Banner" />
-                <img className="xl:hidden absolute top-0 left-0 -z-30 w-full h-full rounded-lg opacity-20" src={hephaestus} alt="Banner" />
-                <Slider arts={arts}></Slider>
-                <div className="flex-1 flex flex-col items-center xl:items-start gap-5 text-center xl:text-left">
-                    <h3 className="text-2xl md:text-5xl font-bold text-white md:leading-snug">Explore the Art of Crafting with Us</h3>
-                    <p className="text-white text-base md:text-lg">Embark on a journey of creativity and imagination with our exquisite collection of artisanal crafts. Explore our curated selection and uncover the beauty that lies within every stroke and detail. Let your home become a canvas for self-expression and artistry. Welcome to a world where creativity knows no bounds.</p>
-                    <Link to={'/all-arts'}><Button color={'#272c50'} buttonText={'Explore'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border !rounded-3xl font-bold text-lg md:text-2xl !px-4'}></Button></Link>
+                    <img className="xl:hidden absolute top-0 left-0 -z-30 w-full h-full rounded-lg opacity-20" src={hephaestus} alt="Banner" />
+                    <Slider arts={arts}></Slider>
+                    <div className="flex-1 flex flex-col items-center xl:items-start gap-5 text-center xl:text-left">
+                        <h3 className="text-2xl md:text-5xl font-bold text-white md:leading-snug">Explore the Art of Crafting with Us</h3>
+                        <p className="text-white text-base md:text-lg">Embark on a journey of creativity and imagination with our exquisite collection of artisanal crafts. Explore our curated selection and uncover the beauty that lies within every stroke and detail. Let your home become a canvas for self-expression and artistry. Welcome to a world where creativity knows no bounds.</p>
+                        <Link to={'/all-arts'}><Button color={'#272c50'} buttonText={'Explore'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border !rounded-3xl font-bold text-lg md:text-2xl !px-4'}></Button></Link>
+                    </div>
                 </div>
-            </div>
             </Slide>
             <hr className="border border-dotted border-[#12132D40] my-8" />
             {/* Our Arts & Crafts */}

@@ -46,7 +46,7 @@ const CategoryDetails = () => {
                 <h3 className="text-lg md:text-2xl font-semibold">Total Items: {arts.length}</h3>
                 <p className="w-[88%] text-center text-[midnightblue]">{category.description}</p>
             </div>
-            <hr />
+            <hr className="my-8" />
             {
                 arts.length < 1 && <div
                     data-aos="fade-up"

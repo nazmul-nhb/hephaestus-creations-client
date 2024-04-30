@@ -39,7 +39,7 @@ const AllArts = () => {
                             <th>#</th>
                             <th>Image, Name & Category</th>
                             <th>Price</th>
-                            <th className="pl-6">View Details</th>
+                            <th className="pl-5 md:pl-[28px]">View Details</th>
                         </tr>
                     </thead>
                     {
