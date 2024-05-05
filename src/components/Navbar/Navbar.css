@@ -1,20 +1,20 @@
 nav ul a.active {
     transition: 1s;
-    border-bottom: 1px solid teal;
+    border-bottom: 1px solid midnightblue;
     /* background-color: rgb(211, 223, 226) !important; */
-    color: teal !important;
+    color: midnightblue !important;
 }
 
 nav ul a.pending {
     transition: 1s;
-    border-bottom: 1px solid teal !important;
-    background-color: teal !important;
+    border-bottom: 1px solid midnightblue !important;
+    background-color: midnightblue !important;
     color: white !important;
 }
 
 nav ul a:hover {
-    border-bottom: 1px solid teal !important;
-    background-color: teal !important;
+    border-bottom: 1px solid midnightblue !important;
+    background-color: midnightblue !important;
     color: white !important;
 }
 

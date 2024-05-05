@@ -19,14 +19,12 @@ const Navbar = () => {
         // Use stored theme if available, otherwise default to 'light'
         return storedTheme || 'light';
     });
+    
     const sidebarRef = useRef(null);
 
-    const handleThemToggle = (e) => {
-        if (e.target.checked) {
-            setTheme('dark')
-        } else {
-            setTheme('light')
-        }
+    const handleThemeToggle = (e) => {
+        const newTheme = e.target.checked ? 'dark' : 'light';
+        setTheme(newTheme); 
     }
 
     useEffect(() => {
@@ -52,19 +50,19 @@ const Navbar = () => {
             }
         };
 
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("mouseup", handleClickOutside);
 
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("mouseup", handleClickOutside);
         };
     }, [sidebarRef]);
 
     const navLinks = <>
         <NavLink to={'/'}>Home</NavLink>
-        <NavLink to={'/all-arts'}>All Art & Crafts</NavLink>
+        <NavLink to={'/all-arts'}>All Items</NavLink>
 
         {
-            user && <><NavLink to={'/add-arts'}>Add Craft Item</NavLink>
+            user && <><NavLink to={'/add-arts'}>Add An Item</NavLink>
                 <NavLink to={'/my-arts'}>My Art & Crafts</NavLink>
             </>
         }
@@ -82,7 +80,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="max-w-[1920px] flex items-center gap-0 md:gap-4 mx-auto shadow-md px-2 py-3 md:px-20 sticky top-0 bg-gradient-to-r from-[#d3d7d5ed] to-[#e9e4e4f8] bg-opacity-100 z-20">
+        <nav className="max-w-[1920px] flex items-center gap-0 md:gap-4 mx-auto shadow-md px-2 py-3 md:px-20 sticky top-0 bg-gradient-to-r from-[#a0a4beed] to-[#544e6f] bg-opacity-100 z-20">
             <div ref={sidebarRef} className="min-[1170px]:hidden text-4xl md:text-5xl cursor-pointer" onClick={() => setOpen(!open)}>
                 {
                     open
@@ -99,7 +97,7 @@ const Navbar = () => {
                         </div></Link>
                 </div>
                 <div className="text-sm xl:text-base">
-                    <ul className={`w-1/2 min-[1170px]:w-full flex flex-col min-[1170px]:flex-row justify-start min-[1170px]:justify-center gap-2 font-medium duration-500 absolute min-[1170px]:static shadow-lg shadow-slate-700 min-[1170px]:shadow-none h-screen min-[1170px]:h-auto p-4 min-[1170px]:p-0 ${open ? 'left-0 top-[60px] md:top-20 bg-gradient-to-r from-[#d3d7d5ed] to-[#e9e4e4f8] bg-opacity-100 flex z-10' : '-left-full top-[60px] md:top-20'}`}>
+                    <ul className={`w-1/2 min-[1170px]:w-full flex flex-col min-[1170px]:flex-row justify-start min-[1170px]:justify-center gap-2 font-medium duration-500 absolute min-[1170px]:static shadow-lg shadow-slate-700 min-[1170px]:shadow-none h-screen min-[1170px]:h-auto p-4 min-[1170px]:p-0 ${open ? 'left-0 top-[60px] md:top-20 bg-gradient-to-t from-[#a0a4beed] to-[#544e6f] bg-opacity-100 flex z-10' : '-left-full top-[60px] md:top-20'}`}>
                         {navLinks}
                     </ul>
                 </div>
@@ -108,7 +106,7 @@ const Navbar = () => {
                     <Tooltip anchorSelect=".toggleTheme" place="bottom">
                         Toggle Theme
                     </Tooltip>
-                    <input onChange={handleThemToggle} type="checkbox" className="theme-controller" />
+                    <input onChange={handleThemeToggle} type="checkbox" className="theme-controller" />
 
                     {/* sun icon */}
                     <svg className="swap-off toggleTheme fill-current w-7 md:w-10 h-7 md:h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" /></svg>
@@ -122,15 +120,14 @@ const Navbar = () => {
                             <Tooltip anchorSelect=".nameIcon" place="bottom">
                                 {userName}
                             </Tooltip>
-                            <Link to={'/profile'}><img className="nameIcon w-9 md:w-14 h-9 md:h-14 rounded-full border-2 p-[2px] border-[#0e1d42e8] hover:opacity-75 hover:scale-[1.01] transform transition-all duration-1000" src={profilePicture} alt={userName} /></Link>
+                            <Link to={'/profile'}><img className="nameIcon w-9 md:w-14 h-9 md:h-14 rounded-full border-2 p-[2px] border-[#0e1d42e8] hover:opacity-70 transition-all duration-1000" src={profilePicture} alt={userName} /></Link>
                             <Tooltip anchorSelect=".logOutIcon" place="bottom">
                                 Log out
                             </Tooltip>
-                            <div className="logOutIcon flex items-center justify-center w-9 md:w-14 h-9 md:h-14 rounded-full border-2 border-[#742222e8] p-[2px] cursor-pointer text-2xl md:text-4xl hover:text-3xl hover:md:text-5xl bg-[#742222e8] text-[#ffffff] hover:text-[#ff5151] hover:bg-[#e0d5d5] hover:border-[#ff5151] transform transition-all duration-1000" onClick={handleLogout}>
+                            <div className="logOutIcon flex items-center justify-center w-9 md:w-14 h-9 md:h-14 rounded-full border-2 border-[midnightblue] p-[2px] cursor-pointer text-2xl md:text-4xl hover:text-3xl hover:md:text-5xl bg-[midnightblue] text-[#ffffff] hover:text-[#ea0c0c] hover:bg-[#e0d5d5] hover:border-[#ea0c0c] transform transition-all duration-1000" onClick={handleLogout}>
                                 <IoMdLogOut />
                             </div>
                         </div>
-                        // overBgColor={'transparent'} hoverColor={'white'} className={'border !rounded-3xl font-bold text-xl !px-4'}
                         : <div className="flex items-center gap-1 md:gap-3">
                             <NavLink to={'/login'}><Button className="border text-sm md:text-xl xl:text-2xl !rounded-3xl !px-2 md:!px-4 !py-[2px] md:!py-1 font-bold" buttonText={"Login"} color={"#272c50"} hoverColor={"white"} hoverBgColor={"transparent"}></Button></NavLink>
                             <NavLink to={'/register'}><Button className="border text-sm md:text-xl xl:text-2xl !rounded-3xl !px-2 md:!px-4 !py-[2px] md:!py-1 font-bold" buttonText={"Register"} color={"#272c50"} hoverColor={"white"} hoverBgColor={"transparent"}></Button></NavLink>
