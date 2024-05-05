@@ -31,7 +31,7 @@ const AllArts = () => {
             <Helmet>
                 <title>All Arts & Crafts List - Hephaestus Creations</title>
             </Helmet>
-            <h2 className="text-center mb-4 text-2xl font-semibold leading-tight">All Art & Craft Items</h2>
+            <h2 className="text-center mb-4 text-2xl font-semibold leading-tight">All Art & Craft Items ({arts.length})</h2>
             <div className="container overflow-x-auto">
                 <table className="table text-xs md:text-sm">
                     <thead className=" text-sm md:text-base">
@@ -49,7 +49,7 @@ const AllArts = () => {
                                     <th>{index + 1}.</th>
                                     <td>
                                         <div className="flex items-center gap-3">
-                                            <div className="avatar hidden md:inline">
+                                            <div className="avatar">
                                                 <div className="mask mask-squircle w-12 h-12">
                                                     <img src={art.image} alt={art.item_name} />
                                                 </div>
@@ -61,7 +61,7 @@ const AllArts = () => {
                                         </div>
                                     </td>
                                     <td>${art.price}</td>
-                                    <th className="text-[10px] md:text-base">
+                                    <th className="text-[9px] md:text-base">
                                         <Link to={`/details/${art._id}`}>
                                             <Button className={'border !rounded-3xl font-medium !px-4'} hoverBgColor={'transparent'} hoverColor={'white'} color={'#272c50'} buttonText={'View Details'}></Button>
                                         </Link>
