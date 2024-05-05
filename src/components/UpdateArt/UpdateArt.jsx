@@ -9,7 +9,7 @@ const UpdateArt = ({ polishedArt, closeModal, handleUpdate }) => {
         updatedArt.price = parseFloat(updatedArt.price);
         updatedArt.rating = parseFloat(updatedArt.rating);
 
-        handleUpdate(polishedArt._id, updatedArt)
+        handleUpdate(polishedArt._id, updatedArt);
         closeModal();
     }
 
@@ -28,7 +28,7 @@ const UpdateArt = ({ polishedArt, closeModal, handleUpdate }) => {
                                 required:
                                     { value: true, message: "You must provide a valid photo URL." }
                             })}
-                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="image" id="image" placeholder="Your Photo URL for the polishedArt" />
+                            className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="image" id="image" placeholder="Your Photo URL for the art item" />
                         {
                             errors.image && <p className="text-red-700">{errors.image.message}</p>
                         }
@@ -40,7 +40,7 @@ const UpdateArt = ({ polishedArt, closeModal, handleUpdate }) => {
                         defaultValue={polishedArt.item_name}
                             {...register("item_name", {
                                 required:
-                                    { value: true, message: "You must provide a valid Name for the polishedArt item." }
+                                    { value: true, message: "You must provide a valid Name for the art item." }
                             })}
                             className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="item_name" id="item_name" placeholder="Art/Craft Name" />
                         {
@@ -146,7 +146,7 @@ const UpdateArt = ({ polishedArt, closeModal, handleUpdate }) => {
                         defaultValue={polishedArt.processing_time}
                             {...register("processing_time", {
                                 required:
-                                    { value: true, message: "You must provide processing time for the polishedArt item." }
+                                    { value: true, message: "You must provide processing time for the art item." }
                             })}
                             className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="processing_time" id="processing_time" placeholder="Processing Time" />
                         {
@@ -160,7 +160,7 @@ const UpdateArt = ({ polishedArt, closeModal, handleUpdate }) => {
                         defaultValue={polishedArt.stock_status}
                             {...register("stock_status", {
                                 required:
-                                    { value: true, message: "You must select stock status for the polishedArt item." }
+                                    { value: true, message: "You must select stock status for the art item." }
                             })}
                             className="p-2 rounded-lg bg-[#F3F3F3]" type="text" name="stock_status" list="stocks" id="stock_status" placeholder="Select or Add Stock Status" />
                         <datalist id="stocks">

@@ -33,14 +33,14 @@ const ArtDetails = () => {
             </Helmet>
 
             <div className="flex-1 flex flex-col gap-5 px-6 lg:px-0">
-                <h3 className="text-[slateblue] flex gap-1 items-center text-xl md:text-3xl font-bold"><GiColombianStatue />{item_name}</h3>
-                <h3 className="text-[steelblue] flex gap-1 items-center font-semibold text-lg md:text-2xl"><BiSolidCategory /><span className="font-bold">Subcategory: </span>{subcategory_name}</h3>
+                <h3 className="text-[slateblue] flex gap-1 items-center text-base md:text-3xl font-bold"><GiColombianStatue />{item_name}</h3>
+                <h3 className="text-[steelblue] flex gap-1 items-center font-semibold text-base md:text-2xl"><BiSolidCategory /><span className="font-bold">Subcategory: </span>{subcategory_name}</h3>
                 <div className="text-[#33333bb1]">
-                    <span className="flex gap-1 items-center font-semibold text-lg"><MdDescription />Item Description: </span>
-                    <p className="text-[#4a4a64b9] text-base">{short_description}</p>
+                    <span className="flex gap-1 items-center font-semibold md:text-lg"><MdDescription />Item Description: </span>
+                    <p className="text-[#4a4a64b9] text-sm md:text-base">{short_description}</p>
                 </div>
                 <hr />
-                <div className="flex justify-between items-center text-lg font-medium">
+                <div className="flex justify-between gap-3 flex-col md:flex-row items-start md:items-center text-lg font-medium">
                     <h3 className="flex gap-1 items-center text-[#134113] border border-[#134113] bg-[#13411315] px-2 rounded-2xl"><IoMdPricetags /><span className="font-semibold">Price: </span>${price}</h3>
                     <h3 className="flex gap-1 items-center text-[#6b5f1a] border border-[#6b5f1a] bg-[#6b5f1a15] px-2 rounded-2xl"><MdRateReview /><span className="font-semibold">Rating: </span>{rating} <FaStar /></h3>
                 </div>
@@ -49,7 +49,7 @@ const ArtDetails = () => {
                     <h3 className="text-[#5648969d] font-medium border border-[#5648969d] bg-[#3f36660f] px-2 rounded-2xl flex gap-1 items-center"><PiTimerBold /><span className="font-semibold">Processing Time: </span>{processing_time}</h3>
                 </div>
                 <hr />
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col md:flex-row gap-5 justify-between items-start md:items-center">
                     <h3 className="text-[#5648969d] bg-[#3f36660f] font-medium border border-[#5648969d] px-2 rounded-2xl flex gap-1 items-center"><GiStockpiles /><span className="font-semibold">Stock Status: </span>{stock_status}</h3>
                     <Button onClick={showSuccess} color={'#272c50'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border !rounded-3xl font-bold text-xl !px-4'} buttonText={"Order Now"}></Button>
                 </div>
@@ -67,7 +67,7 @@ const ArtDetails = () => {
                 <figure className="p-6 border shadow-md shadow-[#34284d34] rounded-md space-y-6 md:space-y-8">
                     <Zoom duration={2000}>
                         <img id="art-item" className="hover:scale-105 transition-all opacity-95 duration-500 hover:opacity-100 rounded-md" src={image} alt={item_name} />
-                        <figcaption className="text-center font-semibold md:text-xl text-[midnightblue]">{item_name}</figcaption>
+                        <figcaption className="text-center font-semibold text-sm md:text-xl text-[midnightblue]">{item_name}</figcaption>
                     </Zoom>
                 </figure>
             </div>

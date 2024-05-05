@@ -2,7 +2,7 @@ import "./Navbar.css";
 import Button from "../Button/Button";
 import defaultPP from '../../assets/user.png';
 import { Link, NavLink } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { MdMenuOpen, MdOutlineClose } from "react-icons/md";
 import { IoMdLogOut } from "react-icons/io";
@@ -19,6 +19,7 @@ const Navbar = () => {
         // Use stored theme if available, otherwise default to 'light'
         return storedTheme || 'light';
     });
+    const sidebarRef = useRef(null);
 
     const handleThemToggle = (e) => {
         if (e.target.checked) {
@@ -44,6 +45,20 @@ const Navbar = () => {
         }
     }, [user]);
 
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
+                setOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [sidebarRef]);
+
     const navLinks = <>
         <NavLink to={'/'}>Home</NavLink>
         <NavLink to={'/all-arts'}>All Art & Crafts</NavLink>
@@ -66,10 +81,9 @@ const Navbar = () => {
             })
     }
 
-
     return (
         <nav className="max-w-[1920px] flex items-center gap-0 md:gap-4 mx-auto shadow-md px-2 py-3 md:px-20 sticky top-0 bg-gradient-to-r from-[#d3d7d5ed] to-[#e9e4e4f8] bg-opacity-100 z-20">
-            <div className="min-[1170px]:hidden text-4xl md:text-5xl cursor-pointer" onClick={() => setOpen(!open)}>
+            <div ref={sidebarRef} className="min-[1170px]:hidden text-4xl md:text-5xl cursor-pointer" onClick={() => setOpen(!open)}>
                 {
                     open
                         ? <MdOutlineClose className="text-[#e85800] hover:text-[#236d3e] transform transition-all duration-1000"></MdOutlineClose>
@@ -77,7 +91,7 @@ const Navbar = () => {
                 }
             </div>
             <div className="flex justify-between items-center w-full">
-                <div className="flex items-center gap-1" title="ArtisanAxis Realty">
+                <div className="flex items-center gap-1" title="Hephaestus Creations">
                     <Link to="/">
                         <div className="flex flex-col">
                             <h3 className="text-xs md:text-2xl font-semibold text-[midnightblue]">Hephaestus Creations</h3>
