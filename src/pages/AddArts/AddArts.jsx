@@ -1,13 +1,26 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import Button from "../../components/Button/Button";
 import Swal from 'sweetalert2';
+import { IoIosCloseCircle } from "react-icons/io";
+import Preview from "../../components/Preview/Preview";
 
 const AddArts = () => {
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const [showModal, setShowModal] = useState(false);
+    const [previewItem, setPreviewItem] = useState("");
+
+    const closeModal = () => {
+        setShowModal(false);
+    };
+
+    const handlePreviewImage = (item) => {
+        setPreviewItem(item);
+        setShowModal(true);
+    }
 
     const handleAddArt = (newItem) => {
         newItem.customization = newItem.customization === "true";
@@ -41,7 +54,7 @@ const AddArts = () => {
             <Helmet>
                 <title>Add Arts & Crafts - Hephaestus Creations</title>
             </Helmet>
-            <form onSubmit={handleSubmit(handleAddArt)} className="flex flex-col gap-6 mx-auto px-4 lg:px-20 py-6 lg:py-10 bg-gradient-to-r from-[#86cfa157] to-[#8d6dd9a3] shadow-lg shadow-[#3c3939] rounded-lg">
+            <form onSubmit={handleSubmit(handleAddArt)} className="flex flex-col gap-6 mx-auto px-4 lg:px-20 py-6 lg:py-10 bg-gradient-to-r from-[#7076a0ed] to-[#6b5caffb] shadow-lg shadow-[#3c3939] rounded-lg">
                 <h2 className="text-lg md:text-2xl font-semibold text-center">Add an Item</h2>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -191,7 +204,7 @@ const AddArts = () => {
                     {/* User Email */}
                     <div className="flex flex-col gap-3">
                         <label className="font-medium" htmlFor="user_email">Your Email*</label>
-                        <input
+                        <input readOnly
                             value={user?.email}
                             {...register("user_email", {
                                 required:
@@ -205,7 +218,7 @@ const AddArts = () => {
                     {/* User Name */}
                     <div className="flex flex-col gap-3">
                         <label className="font-medium" htmlFor="user_name">Your Name*</label>
-                        <input
+                        <input readOnly
                             value={user?.displayName}
                             {...register("user_name", {
                                 required:
@@ -217,9 +230,17 @@ const AddArts = () => {
                         }
                     </div>
                 </div>
-
-                <Button buttonType={'submit'} className={'border w-full text-xl font-semibold'} buttonText={'Add Item'} color={'teal'} hoverColor={'white'} hoverBgColor={'transparent'}></Button>
+                <Button onClick={handleSubmit(handlePreviewImage)} buttonType={'button'} className={'border w-full text-xl font-semibold'} color={'red'} hoverColor={'white'} hoverBgColor={'transparent'} buttonText={'Preview Item'}></Button>
+                <Button buttonType={'submit'} className={'border w-full text-xl font-semibold'} buttonText={'Add Item'} color={'midnightblue'} hoverColor={'white'} hoverBgColor={'transparent'}></Button>
             </form>
+            {
+                showModal && (
+                    <dialog open className="w-full xl:w-auto h-full bg-gradient-to-b from-[#7076a0ed] to-[#8078a4fb] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg z-20 overflow-y-auto">
+                        <Preview previewItem={previewItem}></Preview>
+                        <button onClick={closeModal} className='absolute top-1 right-1 text-5xl text-red-800 hover:text-red-600 hover:opacity-80 transition-all duration-500' title='Close'><IoIosCloseCircle /></button>
+                    </dialog>
+                )
+            }
         </section>
     );
 };

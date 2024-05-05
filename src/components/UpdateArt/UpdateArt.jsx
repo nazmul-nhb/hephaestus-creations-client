@@ -15,7 +15,7 @@ const UpdateArt = ({ polishedArt, closeModal, handleUpdate }) => {
 
     return (
         <section className="animate__animated animate__fadeInDown m-2 p-2 xl:flex items-center justify-center">
-            <form onSubmit={handleSubmit(updateArt)} className="flex flex-col gap-6 mx-auto px-4 lg:px-20 py-6 lg:py-10 bg-gradient-to-r from-[#86cfa157] to-[#8d6dd9a3] shadow-lg shadow-[#3c3939] text-[#150936] rounded-lg">
+            <form onSubmit={handleSubmit(updateArt)} className="flex flex-col gap-6 mx-auto px-4 lg:px-20 py-6 lg:py-10 bg-gradient-to-t from-[#7076a0ed] to-[#6b5caffb] shadow-lg shadow-[#3c3939] text-[#150936] rounded-lg">
                 <h2 className="text-lg md:text-2xl font-semibold text-center">Update : <span className="text-[midnightblue]">{polishedArt.item_name}</span></h2>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -172,7 +172,7 @@ const UpdateArt = ({ polishedArt, closeModal, handleUpdate }) => {
                         }
                     </div>
                 </div>
-                <button className="px-3 py-2 font-bold rounded-lg bg-[#235d62] text-white border border-[#235d62] hover:text-[#235d62] hover:bg-transparent transition duration-500">Update</button>
+                <button className="px-3 py-2 font-bold rounded-lg bg-[midnightblue] text-white border border-[midnightblue] hover:text-[midnightblue] hover:bg-transparent transition duration-500">Update</button>
             </form>
         </section>
     );

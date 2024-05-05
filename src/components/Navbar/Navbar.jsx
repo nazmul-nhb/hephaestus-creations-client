@@ -80,12 +80,12 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="max-w-[1920px] flex items-center gap-0 md:gap-4 mx-auto shadow-md px-2 py-3 md:px-20 sticky top-0 bg-gradient-to-r from-[#a0a4beed] to-[#544e6f] bg-opacity-100 z-20">
+        <nav className="max-w-[1920px] flex items-center gap-0 md:gap-4 mx-auto shadow-md px-2 py-3 md:px-20 sticky top-0 bg-gradient-to-l from-[#a0a4beed] to-[#7466b4fb] bg-opacity-100 z-20">
             <div ref={sidebarRef} className="min-[1170px]:hidden text-4xl md:text-5xl cursor-pointer" onClick={() => setOpen(!open)}>
                 {
                     open
-                        ? <MdOutlineClose className="text-[#e85800] hover:text-[#236d3e] transform transition-all duration-1000"></MdOutlineClose>
-                        : <MdMenuOpen className="text-[#236d3e] hover:text-[#e85800] transform transition-all duration-1000"></MdMenuOpen>
+                        ? <MdOutlineClose className="text-[#ea0c0c] hover:text-[midnightblue] transform transition-all duration-1000"></MdOutlineClose>
+                        : <MdMenuOpen className="text-[midnightblue] hover:text-[#ea0c0c] transform transition-all duration-1000"></MdMenuOpen>
                 }
             </div>
             <div className="flex justify-between items-center w-full">
@@ -97,7 +97,7 @@ const Navbar = () => {
                         </div></Link>
                 </div>
                 <div className="text-sm xl:text-base">
-                    <ul className={`w-1/2 min-[1170px]:w-full flex flex-col min-[1170px]:flex-row justify-start min-[1170px]:justify-center gap-2 font-medium duration-500 absolute min-[1170px]:static shadow-lg shadow-slate-700 min-[1170px]:shadow-none h-screen min-[1170px]:h-auto p-4 min-[1170px]:p-0 ${open ? 'left-0 top-[60px] md:top-20 bg-gradient-to-t from-[#a0a4beed] to-[#544e6f] bg-opacity-100 flex z-10' : '-left-full top-[60px] md:top-20'}`}>
+                    <ul className={`w-1/2 min-[1170px]:w-full flex flex-col min-[1170px]:flex-row justify-start min-[1170px]:justify-center gap-2 font-medium duration-500 absolute min-[1170px]:static shadow-lg shadow-slate-700 min-[1170px]:shadow-none h-screen min-[1170px]:h-auto p-4 min-[1170px]:p-0 ${open ? 'left-0 top-[60px] md:top-20 bg-gradient-to-t from-[#a0a4beed] to-[#6b5caffb] bg-opacity-100 flex z-10' : '-left-full top-[60px] md:top-20'}`}>
                         {navLinks}
                     </ul>
                 </div>

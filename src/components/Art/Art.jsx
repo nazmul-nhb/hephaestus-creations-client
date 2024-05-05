@@ -90,10 +90,10 @@ const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
                 {
                     !modifiable ? <Link to={`/details/${_id}`}><Button buttonText={'View Details'} color={customization ? 'midnightblue' : 'slateblue'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border w-full font-medium tracking-wide'}></Button></Link>
                         : <div className="flex justify-between gap-2 md:text-base">
-                            <button onClick={() => setShowModal(true)} className='flex items-center gap-1 border text-white border-green-900 px-2 rounded-3xl bg-green-900'>
+                            <button onClick={() => setShowModal(true)} className='flex items-center gap-1 border text-white font-medium border-[midnightblue] hover:bg-transparent hover:text-[midnightblue] px-2 rounded-3xl bg-[midnightblue]'>
                                 <RiFileEditFill /> Update
                             </button>
-                            <button onClick={() => handleDelete(_id)} className='flex items-center gap-1 border text-white border-red-700 px-2 rounded-3xl bg-red-700'>
+                            <button onClick={() => handleDelete(_id)} className='flex items-center gap-1 border text-white font-medium border-red-700 hover:text-red-700 hover:bg-transparent px-2 rounded-3xl bg-red-700'>
                                 <RiDeleteBin6Line /> Delete
                             </button>
                         </div>
@@ -102,7 +102,7 @@ const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
             {/* Update Modal */}
             {
                 showModal && (
-                    <dialog open className="w-full xl:w-auto h-full bg-opacity-95 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg z-20 overflow-y-auto">
+                    <dialog open className="w-full xl:w-auto h-full bg-gradient-to-t from-[#7076a0ed] to-[#8078a4fb] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg z-20 overflow-y-auto">
                         <UpdateArt
                             polishedArt={polishedArt}
                             handleUpdate={handleUpdate}
