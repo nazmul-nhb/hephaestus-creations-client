@@ -90,7 +90,7 @@ const MyArts = () => {
                 <title>My Arts & Crafts - Hephaestus Creations</title>
             </Helmet>
             <div className="flex flex-col justify-center items-center">
-                <h3 className="text-xl md:text-3xl text-[midnightblue] font-semibold">My Arts & Crafts ({myArts.length})</h3>
+                <h3 className="text-xl md:text-3xl font-semibold">My Arts & Crafts ({myArts.length})</h3>
                 {
                     myArts.length > 0
                         ? <form className="my-8">
