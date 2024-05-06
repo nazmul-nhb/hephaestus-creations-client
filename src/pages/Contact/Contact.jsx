@@ -20,7 +20,7 @@ const Contact = () => {
     }
 
     return (
-        <div className="mx-2 md:mx-8 my-2 md:my-8 p-8 grid grid-cols-1 gap-8 rounded-2xl md:grid-cols-2 bg-gradient-to-r from-[#86cfa157] to-[#aed5e0a3] shadow-lg shadow-[#2b7178]">
+        <div className="mx-2 md:mx-8 my-2 md:my-8 p-8 grid grid-cols-1 gap-8 rounded-2xl md:grid-cols-2 bg-gradient-to-r from-[#7076a0ed] to-[#6b5caffb] shadow-lg shadow-[#6b5caf]">
             <Helmet>
                 <title>Contact - Hephaestus Creations</title>
             </Helmet>
@@ -41,7 +41,7 @@ const Contact = () => {
                 data-aos-offset="300"
                 data-aos-easing="ease-in-sine"
                 data-aos-duration="1000"
-                onSubmit={handleSubmit(handleMessage)} className="text-[#092225] gap-6 flex flex-col justify-between">
+                onSubmit={handleSubmit(handleMessage)} className="gap-6 flex flex-col justify-between">
                 <div>
                     <label htmlFor='name' className="text-lg">Full name</label>
                     <input
@@ -50,7 +50,7 @@ const Contact = () => {
                             required:
                                 { value: true, message: "You must provide your name." }
                         })}
-                        name='name' id="name" type="text" placeholder="Your Full Name" className="border border-[#59C6D2] rounded-lg focus:outline-0 w-full p-3 bg-[#328eff0c] focus:bg-[#328EFF26] transition duration-500" />
+                        name='name' id="name" type="text" placeholder="Your Full Name" className="border border-[midnightblue] rounded-lg focus:outline-0 w-full p-3 focus:bg-[#6262b69b] transition duration-500" />
                     {
                         errors.name && <p className="text-red-700">{errors.name.message}</p>
                     }
@@ -63,7 +63,7 @@ const Contact = () => {
                             required:
                                 { value: false, message: "You must provide a valid email address." }
                         })}
-                        name='email' id="email" type="email" placeholder="Your Email" className="border border-[#59C6D2] rounded-lg focus:outline-0 w-full p-3 bg-[#328eff0c] focus:bg-[#328EFF26] transition duration-500" />
+                        name='email' id="email" type="email" placeholder="Your Email" className="border border-[midnightblue] rounded-lg focus:outline-0 w-full p-3 focus:bg-[#6262b69b] transition duration-500" />
                     {
                         errors.email && <p className="text-red-700">{errors.email.message}</p>
                     }
@@ -75,12 +75,12 @@ const Contact = () => {
                             required:
                                 { value: true, message: "You must write something." }
                         })}
-                        name='msg' id="msg" rows="3" placeholder="Write Your Message to us" className="border border-[#59C6D2] rounded-lg focus:outline-0 w-full p-3 bg-[#328eff0c] focus:bg-[#328EFF26] transition duration-500"></textarea>
+                        name='msg' id="msg" rows="3" placeholder="Write Your Message to us" className="border rounded-lg focus:outline-0 w-full p-3 border-[midnightblue] focus:bg-[#6262b69b] transition duration-500"></textarea>
                     {
                         errors.msg && <p className="text-red-700">{errors.msg.message}</p>
                     }
                 </div>
-                <button type="submit" className="w-full flex items-center justify-center tracking-wide uppercase p-3 font-bold rounded-lg bg-teal-950 text-white border border-teal-950 hover:text-teal-950 hover:bg-transparent transition duration-500">Send Message</button>
+                <button type="submit" className="w-full flex items-center justify-center tracking-wide uppercase p-3 font-bold rounded-lg bg-[midnightblue] text-white border border-[midnightblue] hover:text-[midnightblue] hover:bg-transparent transition duration-500">Send Message</button>
             </form>
         </div>
     );

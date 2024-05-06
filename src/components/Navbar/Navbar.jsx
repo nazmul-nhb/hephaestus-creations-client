@@ -80,8 +80,8 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="max-w-[1920px] flex items-center gap-0 md:gap-4 mx-auto shadow-md px-2 py-3 md:px-20 sticky top-0 bg-gradient-to-l from-[#a0a4beed] to-[#7466b4fb] bg-opacity-100 z-20">
-            <div ref={sidebarRef} className="min-[1170px]:hidden text-4xl md:text-5xl cursor-pointer" onClick={() => setOpen(!open)}>
+        <nav className="max-w-[1920px] flex items-center gap-0 md:gap-4 mx-auto shadow-md px-2 py-3 md:px-20 sticky top-0 bg-gradient-to-l from-[#a0a4beed] to-[#7466b4f6] bg-opacity-100 z-20">
+            <div ref={sidebarRef} className="min-[1170px]:hidden text-5xl cursor-pointer" onClick={() => setOpen(!open)}>
                 {
                     open
                         ? <MdOutlineClose className="text-[#ea0c0c] hover:text-[midnightblue] transform transition-all duration-1000"></MdOutlineClose>
@@ -92,8 +92,8 @@ const Navbar = () => {
                 <div className="flex items-center gap-1" title="Hephaestus Creations">
                     <Link to="/">
                         <div className="flex flex-col">
-                            <h3 className="text-xs md:text-2xl font-semibold text-[midnightblue]">Hephaestus Creations</h3>
-                            <h6 className="text-[9px] md:text-sm text-[#ea0c0c]">Where Art Comes to Life</h6>
+                            <h3 className="text-base md:text-2xl font-semibold text-[midnightblue]">Hephaestus Creations</h3>
+                            <h6 className="text-[10px] md:text-sm text-[#ea0c0c]">Where Art Comes to Life</h6>
                         </div></Link>
                 </div>
                 <div className="text-sm xl:text-base">
@@ -129,8 +129,8 @@ const Navbar = () => {
                             </div>
                         </div>
                         : <div className="flex items-center gap-1 md:gap-3">
-                            <NavLink to={'/login'}><Button className="border text-sm md:text-xl xl:text-2xl !rounded-3xl !px-2 md:!px-4 !py-[2px] md:!py-1 font-bold" buttonText={"Login"} color={"#272c50"} hoverColor={"white"} hoverBgColor={"transparent"}></Button></NavLink>
-                            <NavLink to={'/register'}><Button className="border text-sm md:text-xl xl:text-2xl !rounded-3xl !px-2 md:!px-4 !py-[2px] md:!py-1 font-bold" buttonText={"Register"} color={"#272c50"} hoverColor={"white"} hoverBgColor={"transparent"}></Button></NavLink>
+                            <NavLink to={'/login'}><Button className="border text-base md:text-xl xl:text-2xl !rounded-3xl !px-2 md:!px-4 !py-[2px] md:!py-1 font-bold" buttonText={"Login"} color={"#272c50"} hoverColor={"white"} hoverBgColor={"transparent"}></Button></NavLink>
+                            {/* <NavLink to={'/register'}><Button className="border text-sm md:text-xl xl:text-2xl !rounded-3xl !px-2 md:!px-4 !py-[2px] md:!py-1 font-bold" buttonText={"Register"} color={"#272c50"} hoverColor={"white"} hoverBgColor={"transparent"}></Button></NavLink> */}
                         </div>
                 }
             </div>

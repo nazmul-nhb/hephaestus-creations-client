@@ -10,7 +10,7 @@ const Footer = () => {
     const handleNewsletter = (e) => {
         e.preventDefault();
         const form = e.target;
-        toast.info("Subscribed to Newsletter", { position: "top-center" }, { autoClose: 2500 });
+        toast.info("Subscribed to Newsletter!", { position: "top-center" }, { autoClose: 2500 });
         form.reset();
     }
 
@@ -26,7 +26,7 @@ const Footer = () => {
                         <h6 className="text-[9px] md:text-sm text-[#ea0c0c]">Where Art Comes to Life</h6>
                     </div>
                     <form onSubmit={handleNewsletter} className="flex-1 flex flex-col text-center gap-2 px-8 lg:px-0">
-                        <input required className="p-2 rounded-3xl bg-[#40457a37] border" type="email" name="email" id="email" />
+                        <input required className="p-2 rounded-3xl border border-[midnightblue] focus:outline-0 w-full focus:bg-[#6262b69b] transition duration-500" type="email" name="email" id="email" />
                         <Button buttonType={'submit'} color={'#272c50'} hoverBgColor={'transparent'} hoverColor={'white'} className={'border !rounded-3xl font-bold md:text-xl !px-4'} buttonText={"Subscribe to Newsletter"}></Button>
                     </form>
                     <div className="flex-1 flex flex-col gap-1 items-center lg:items-end">

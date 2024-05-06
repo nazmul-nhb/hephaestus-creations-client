@@ -108,7 +108,7 @@ const Art = ({ art, modifiable, handleDelete, fromCategory }) => {
                             handleUpdate={handleUpdate}
                             closeModal={closeModal}
                         ></UpdateArt>
-                        <button onClick={closeModal} className='absolute top-1 right-1 text-5xl text-red-800 hover:text-red-600 hover:opacity-80 transition-all duration-500' title='Close'><IoIosCloseCircle /></button>
+                        <button onClick={closeModal} className='absolute top-1 right-1 text-5xl text-red-900 hover:text-red-700 hover:opacity-80 transition-all duration-500' title='Close'><IoIosCloseCircle /></button>
                     </dialog>
                 )
             }

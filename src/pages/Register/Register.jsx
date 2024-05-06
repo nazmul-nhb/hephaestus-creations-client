@@ -142,7 +142,7 @@ const Register = () => {
             <Helmet>
                 <title>Register - Hephaestus Creations</title>
             </Helmet>
-            <form onSubmit={handleSubmit(handleRegister)} className="flex flex-col gap-6 w-[96%] md:w-4/5 lg:w-1/2 px-4 lg:px-20 py-4 lg:py-10 bg-gradient-to-r from-[#86cfa157] to-[#9bc7a1a3] shadow-lg shadow-[#3c3939] border border-[#d3d0d0] rounded-md">
+            <form onSubmit={handleSubmit(handleRegister)} className="flex flex-col gap-6 w-[96%] md:w-4/5 lg:w-1/2 px-4 lg:px-20 py-4 lg:py-10 bg-gradient-to-r from-[#9da4dded] to-[#8774dacc] shadow-lg shadow-[#6b5caf] border border-[#d3d0d0] rounded-md">
                 <h2 className="text-lg md:text-2xl font-medium">Please, Register</h2>
                 <div className="flex flex-col gap-3">
                     <label className="font-medium" htmlFor="name">Your Name *</label>
