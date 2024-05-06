@@ -20,7 +20,7 @@ const Contact = () => {
     }
 
     return (
-        <div className="mx-2 md:mx-8 my-2 md:my-8 p-8 grid grid-cols-1 gap-8 rounded-2xl md:grid-cols-2 bg-gradient-to-r from-[#7076a0ed] to-[#6b5caffb] shadow-lg shadow-[#6b5caf]">
+        <div className="mx-2 md:mx-8 my-2 md:my-8 p-8 grid grid-cols-1 gap-8 rounded-2xl md:grid-cols-2 bg-gradient-to-r from-[#9da4dded] to-[#8774dacc] shadow-lg shadow-[#6b5caf]">
             <Helmet>
                 <title>Contact - Hephaestus Creations</title>
             </Helmet>
