@@ -1,20 +1,65 @@
-## Hephaestus Creations - Where Art Comes to Life
+# Hephaestus Creations
 
 - Type of Arts & Crafts: **Sculpture and Modeling**
 - It includes: Clay Sculpture, Stone Sculpture, Metal Sculpture, Food Carving, Natural Material Sculpture, Beaded Sculpture & Wood Engraving.
 
-### Firebase Live Site Link
+## Project Overview
+
+### Where Art Comes to Life
+
+Hephaestus Creations is a dynamic platform where art comes to life, offering users a seamless experience to explore, manage, and interact with various artworks and crafts. The website features customizable themes, a robust art details page, and a personalized user space for managing and showcasing art pieces. It supports effortless navigation, real-time updates, and interactive user engagement, making it an ideal destination for art enthusiasts and creators alike.
+
+## Live Site Link
 
 - [Firebase Live Site](https://hephaestus-creations.web.app/)
 
-### Mentioned NPM Utility Packages Used in this Project
+## Notable Features of the Website
+
+- **Item Management**: Logged-in users can seamlessly add, modify, or remove items from the database, ensuring complete control over their art and crafts.
+- **Filtering Options**: Users can efficiently filter their added items based on customization value, such as "Yes" or "No".
+- **Persistent Theme Customization**: Toggle between Dark and Light themes with settings that persist across sessions, providing a consistent user experience.
+
+## Technologies used in this Project
+
+- ReactJS
+- Javascript
+- TailwindCSS
+- Express.js (Server Side)
+- MongoDB (Server Side)
+
+## Run the Project Locally
+
+1. **Clone the Repository**:
+
+    ```sh
+    git clone https://github.com/nazmul-nhb/hephaestus-creations-client.git
+    cd hephaestus-creations-client
+    ```
+
+2. **Install Dependencies**:
+
+    ```sh
+    npm install
+    ```
+
+3. **Set Up Environment Variables**: Create a `.env.local` file in the root directory and add the necessary environment variables. (**Important!**)
+
+4. **Run the Application**:
+
+    ```sh
+    npm run dev -- --host
+    ```
+
+5. **Access the Site**: Open your browser and go to `http://localhost:5173/` or `http://192.168.1.12:5173/` from other devices on the same network to view the application.
+
+## NPM Utility Packages Used in this Project
+<!-- markdownlint-disable MD033 -->
+<details>
+<summary>Click to Expand</summary>
 
 - [react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter) in item card and art category page
 - [react-awesome-reveal](https://www.npmjs.com/package/react-awesome-reveal) in different pages
 - [react-tooltip](https://react-tooltip.com/) on Navbar Profile Picture & Logout Button
-
-### Other NPM Utility Packages Used in this Project
-
 - [aos](https://michalsnik.github.io/aos/) for Animation On Scroll
 - [animate.css](https://animate.style/) for Animation Effects on ErrorPage
 - [react-hook-form](https://react-hook-form.com/) for Handling Forms
@@ -25,6 +70,10 @@
 - [sweetalert2](https://sweetalert2.github.io/) for Showing Modals in few Pages
 - [react-fast-marquee](https://www.react-fast-marquee.com/) for Horizontal Auto-Scroll on Homepage in Reviews Section
 
+</details>
+<!-- markdownlint-enable MD033 -->
+
+<!-- 
 ### Notable Features of the Website
 
 - You can toggle **Dark/Light** theme for the whole website
@@ -54,3 +103,4 @@
 - On **Navbar** beside your profile picture, you can see a logout icon. You can simply log out by clicking this icon
 - You will notice animation effects on most of the pages of the site.
 - If you enter any invalid URL suffix, you'll see a **404 Error Page**. This page has special animation effects
+-->
