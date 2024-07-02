@@ -52,7 +52,7 @@ Hephaestus Creations is a dynamic platform where art comes to life, offering use
 
 5. **Access the Site**: Open your browser and go to `http://localhost:5173/` or `http://192.168.1.12:5173/` from other devices on the same network to view the application.
 
-## NPM Utility Packages Used in this Project
+## Utility Packages Used in this Project
 <!-- markdownlint-disable MD033 -->
 <details>
 <summary>Click to Expand</summary>
